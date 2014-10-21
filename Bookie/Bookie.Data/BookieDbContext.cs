@@ -14,7 +14,7 @@ namespace Bookie.Data
         public BookieDbContext()
             : base(ConnectionStrings.CloudDatabaseConnection, throwIfV1Schema: false)
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<BookieDbContext, Configuration>());
+            Database.SetInitializer<BookieDbContext>(new MigrateDatabaseToLatestVersion<BookieDbContext, Configuration>());
         }
 
         public IDbSet<Author> Authors { get; set; }
