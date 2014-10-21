@@ -7,6 +7,7 @@
 ## Contributors:
 * Martin Nikolov ([@ flextry](https://github.com/flextry))
 * Milan Drumev ([@ drumev](https://github.com/drumev))
+* Ivaylo Hristor ([@ Ivaylo1987](https://github.com/Ivaylo1987))
 
 ## Project Description
 
