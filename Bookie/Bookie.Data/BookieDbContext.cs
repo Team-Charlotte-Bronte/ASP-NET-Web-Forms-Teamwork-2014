@@ -2,6 +2,7 @@ namespace Bookie.Data
 {
     using System;
     using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
     using Bookie.Common;
     using Bookie.Data.Contracts;
     using Bookie.Data.Migrations;
@@ -11,7 +12,7 @@ namespace Bookie.Data
     public class BookieDbContext : IdentityDbContext<User>, IBookieDbContext
     {
         public BookieDbContext()
-            : base(ConnectionStrings.DefaultConnection, throwIfV1Schema: false)
+            : base(ConnectionStrings.CloudDatabaseConnection, throwIfV1Schema: false)
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<BookieDbContext, Configuration>());
         }
@@ -32,6 +33,11 @@ namespace Bookie.Data
         public IDbSet<T> Set<T>() where T : class
         {
             return base.Set<T>();
+        }
+
+        public DbEntityEntry<T> Entry<T>(T entity) where T : class
+        {
+            return this.Entry<T>(entity);
         }
 
         public void SaveChanges()
