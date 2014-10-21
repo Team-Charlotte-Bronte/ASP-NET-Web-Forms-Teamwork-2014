@@ -76,10 +76,19 @@
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
-            </footer>
+            <div class="panel-footer navbar-fixed-bottom">
+                <footer class="text-center">
+                    <small>
+                        <a href="https://github.com/Team-Charlotte-Bronte" target="_blank">Team "Charlotte Bronte"</a>
+                        &#169; 2014,
+                        <a href="http://telerikacademy.com/" target="_blank">Telerik Academy</a>
+                    </small>
+                    <br />
+                    <small>
+                        <a href="https://github.com/Team-Charlotte-Bronte/ASP-NET-Web-Forms-Teamwork-2014" target="_blank">Open Source Project at GitHub</a>
+                    </small>
+                </footer>
+            </div>
         </div>
     </form>
 </body>
