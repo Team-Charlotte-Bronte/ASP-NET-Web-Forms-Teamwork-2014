@@ -8,6 +8,14 @@
     {
         IGenericRepository<User> Users { get; }
 
+        IGenericRepository<Author> Authors { get; }
+
+        IGenericRepository<Book> Books { get; }
+
+        IGenericRepository<BookComment> BookComments { get; }
+
+        IGenericRepository<Publisher> Publishers { get; }
+
         int SaveChanges();
     }
 }

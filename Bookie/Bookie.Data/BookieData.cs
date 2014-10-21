@@ -1,10 +1,9 @@
-﻿namespace Bookie.Data.UnitOfWork
+﻿namespace Bookie.Data
 {
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Linq;
-    using Bookie.Data;
     using Bookie.Data.Contracts;
     using Bookie.Data.Repositories;
     using Bookie.Models;
@@ -29,6 +28,38 @@
             get
             {
                 return this.GetRepository<User>();
+            }
+        }
+
+        public IGenericRepository<Author> Authors
+        {
+            get
+            {
+                return this.GetRepository<Author>();
+            }
+        }
+
+        public IGenericRepository<Book> Books
+        {
+            get
+            {
+                return this.GetRepository<Book>();
+            }
+        }
+
+        public IGenericRepository<BookComment> BookComments
+        {
+            get
+            {
+                return this.GetRepository<BookComment>();
+            }
+        }
+
+        public IGenericRepository<Publisher> Publishers
+        {
+            get
+            {
+                return this.GetRepository<Publisher>();
             }
         }
 

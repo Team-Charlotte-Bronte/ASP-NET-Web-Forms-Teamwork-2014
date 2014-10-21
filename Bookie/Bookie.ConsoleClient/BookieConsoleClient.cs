@@ -2,8 +2,8 @@
 {
     using System;
     using System.Linq;
-    using Bookie.Data.UnitOfWork;
-    
+    using Bookie.Data;
+
     public class BookieConsoleClient
     {
         private static readonly BookieData bookieData = new BookieData();

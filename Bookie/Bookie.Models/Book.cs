@@ -3,16 +3,19 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
     
     public class Book
     {
         private ICollection<Author> authors;
+        private ICollection<BookComment> comments;
 
         public Book()
         {
             this.Id = Guid.NewGuid();
             this.authors = new HashSet<Author>();
+            this.comments = new HashSet<BookComment>();
         }
 
         [Key]
@@ -39,13 +42,21 @@
 
         public byte[] Image { get; set; }
 
-        public string Publisher { get; set; }
-
         public bool? IsAvailable { get; set; }
 
         public bool IsUsed { get; set; }
 
         public decimal Price { get; set; }
+
+        [ForeignKey("User")]
+        public string UserId { get; set; }
+
+        public virtual User User { get; set; }
+
+        [ForeignKey("Publisher")]
+        public Guid PublisherId { get; set; }
+
+        public virtual Publisher Publisher { get; set; }
 
         public virtual ICollection<Author> Authors
         {
@@ -56,6 +67,18 @@
             set
             {
                 this.authors = value;
+            }
+        }
+
+        public virtual ICollection<BookComment> Comments
+        {
+            get
+            {
+                return this.comments;
+            }
+            set
+            {
+                this.comments = value;
             }
         }
     }

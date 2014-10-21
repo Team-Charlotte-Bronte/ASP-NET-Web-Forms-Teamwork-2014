@@ -16,6 +16,14 @@ namespace Bookie.Data
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<BookieDbContext, Configuration>());
         }
 
+        public IDbSet<Author> Authors { get; set; }
+
+        public IDbSet<Book> Books { get; set; }
+
+        public IDbSet<BookComment> BookComments { get; set; }
+
+        public IDbSet<Publisher> Publishers { get; set; }
+
         public static BookieDbContext Create()
         {
             return new BookieDbContext();

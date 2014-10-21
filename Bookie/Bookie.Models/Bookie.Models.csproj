@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\Bookie.Web\bin\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -46,10 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Publisher.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Author.cs" />
     <Compile Include="Book.cs" />
-    <Compile Include="UserComment.cs" />
     <Compile Include="BookComment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

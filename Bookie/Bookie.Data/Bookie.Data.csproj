@@ -63,7 +63,7 @@
     <Compile Include="Contracts\IDbContext.cs" />
     <Compile Include="Contracts\IGenericRepository.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
-    <Compile Include="UnitOfWork\BookieData.cs" />
+    <Compile Include="BookieData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -2,6 +2,7 @@
 {
     using System;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
     public class BookComment
@@ -13,8 +14,14 @@
         [MinLength(5), MaxLength(200)]
         public string Content { get; set; }
 
-        public string BookId { get; set; }
+        [ForeignKey("Book")]
+        public Guid BookId { get; set; }
 
-        public Book Book { get; set; }
+        public virtual Book Book { get; set; }
+
+        [ForeignKey("User")]
+        public string UserId { get; set; }
+
+        public virtual User User { get; set; }
     }
 }
