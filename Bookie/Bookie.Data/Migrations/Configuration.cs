@@ -155,9 +155,11 @@ namespace Bookie.Data.Migrations
                     new SubCategory()
                     {
                         Name = "Physics and Astronomy"
-                    },
+                    }
                 }
             });
+
+            context.SaveChanges();
         }
     }
 }

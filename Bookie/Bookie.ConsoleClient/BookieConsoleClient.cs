@@ -10,7 +10,12 @@
 
         internal static void Main()
         {
-            Console.WriteLine(bookieData.Users.All().Count());
+            Console.WriteLine("Number of users: {0}", bookieData.Users.All().Count());
+
+            foreach (var category in bookieData.Categories.All().ToList())
+            {
+                Console.WriteLine("{0} -> {1}", category.Name, string.Join(", ", category.SubCategories.Select(c => c.Name)));
+            }
         }
     }
 }

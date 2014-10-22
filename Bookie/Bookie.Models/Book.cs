@@ -60,8 +60,13 @@
 
         public virtual Publisher Publisher { get; set; }
 
+        [ForeignKey("Category")]
+        public Guid? CategoryId { get; set; }
+
+        public virtual Category Category { get; set; }
+
         [ForeignKey("SubCategory")]
-        public Guid SubCategoryId { get; set; }
+        public Guid? SubCategoryId { get; set; }
 
         public virtual SubCategory SubCategory { get; set; }
 
