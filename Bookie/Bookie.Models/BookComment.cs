@@ -7,12 +7,19 @@
 
     public class BookComment
     {
+        public BookComment()
+        {
+            this.DateCreated = DateTime.Now;
+        }
+
         [Key]
         public int Id { get; set; }
 
         [Required]
         [MinLength(5), MaxLength(200)]
         public string Content { get; set; }
+
+        public DateTime DateCreated { get; set; }
 
         public bool IsApproved { get; set; }
 

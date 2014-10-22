@@ -14,6 +14,7 @@
         public Book()
         {
             this.Id = Guid.NewGuid();
+            this.DateAdded = DateTime.Now;
             this.authors = new HashSet<Author>();
             this.comments = new HashSet<BookComment>();
         }
@@ -34,6 +35,8 @@
         public string AuthorComment { get; set; }
 
         public string Isbn { get; set; }
+
+        public DateTime DateAdded { get; set; }
 
         [Range(0, 5000)]
         public int? NumberOfPages { get; set; }

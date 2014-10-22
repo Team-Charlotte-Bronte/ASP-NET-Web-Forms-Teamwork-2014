@@ -12,7 +12,7 @@ namespace Bookie.Data
     public class BookieDbContext : IdentityDbContext<User>, IBookieDbContext
     {
         public BookieDbContext()
-            : base(ConnectionStrings.DefaultConnection, throwIfV1Schema: false)
+            : base(ConnectionStrings.CloudDatabaseConnection, throwIfV1Schema: false)
         {
             Database.SetInitializer<BookieDbContext>(new MigrateDatabaseToLatestVersion<BookieDbContext, Configuration>());
         }
