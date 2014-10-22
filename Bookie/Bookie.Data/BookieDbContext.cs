@@ -12,7 +12,7 @@ namespace Bookie.Data
     public class BookieDbContext : IdentityDbContext<User>, IBookieDbContext
     {
         public BookieDbContext()
-            : base(ConnectionStrings.CloudDatabaseConnection, throwIfV1Schema: false)
+            : base(ConnectionStrings.DefaultConnection, throwIfV1Schema: false)
         {
             Database.SetInitializer<BookieDbContext>(new MigrateDatabaseToLatestVersion<BookieDbContext, Configuration>());
         }
@@ -24,6 +24,10 @@ namespace Bookie.Data
         public IDbSet<BookComment> BookComments { get; set; }
 
         public IDbSet<Publisher> Publishers { get; set; }
+
+        public IDbSet<Category> Categories { get; set; }
+
+        public IDbSet<SubCategory> SubCategories { get; set; }
 
         public static BookieDbContext Create()
         {

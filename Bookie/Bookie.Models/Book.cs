@@ -44,6 +44,8 @@
 
         public bool? IsAvailable { get; set; }
 
+        public bool IsApproved { get; set; }
+
         public bool IsUsed { get; set; }
 
         public decimal Price { get; set; }
@@ -57,6 +59,11 @@
         public Guid PublisherId { get; set; }
 
         public virtual Publisher Publisher { get; set; }
+
+        [ForeignKey("SubCategory")]
+        public Guid SubCategoryId { get; set; }
+
+        public virtual SubCategory SubCategory { get; set; }
 
         public virtual ICollection<Author> Authors
         {

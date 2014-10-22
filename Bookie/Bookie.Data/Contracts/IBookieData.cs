@@ -16,6 +16,10 @@
 
         IGenericRepository<Publisher> Publishers { get; }
 
+        IGenericRepository<Category> Categories { get; }
+
+        IGenericRepository<SubCategory> SubCategories { get; }
+
         int SaveChanges();
     }
 }

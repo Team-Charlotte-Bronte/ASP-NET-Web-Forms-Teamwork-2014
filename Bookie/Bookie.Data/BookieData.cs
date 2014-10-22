@@ -63,6 +63,22 @@
             }
         }
 
+        public IGenericRepository<Category> Categories
+        {
+            get
+            {
+                return this.GetRepository<Category>();
+            }
+        }
+
+        public IGenericRepository<SubCategory> SubCategories
+        {
+            get
+            {
+                return this.GetRepository<SubCategory>();
+            }
+        }
+
         public int SaveChanges()
         {
             return this.context.SaveChanges();

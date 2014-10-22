@@ -14,6 +14,8 @@
         [MinLength(5), MaxLength(200)]
         public string Content { get; set; }
 
+        public bool IsApproved { get; set; }
+
         [ForeignKey("Book")]
         public Guid BookId { get; set; }
 
