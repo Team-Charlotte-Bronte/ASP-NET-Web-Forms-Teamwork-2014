@@ -20,5 +20,7 @@
         IDbSet<Category> Categories { get; set; }
 
         IDbSet<SubCategory> SubCategories { get; set; }
+
+        IDbSet<PurchasedBook> PurchasedBooks { get; set; }
     }
 }

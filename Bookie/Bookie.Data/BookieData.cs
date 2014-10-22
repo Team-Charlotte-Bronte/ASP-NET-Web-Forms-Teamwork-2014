@@ -79,6 +79,14 @@
             }
         }
 
+        public IGenericRepository<PurchasedBook> PurchasedBooks
+        {
+            get
+            {
+                return this.GetRepository<PurchasedBook>();
+            }
+        }
+
         public int SaveChanges()
         {
             return this.context.SaveChanges();

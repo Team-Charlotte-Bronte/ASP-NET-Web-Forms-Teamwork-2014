@@ -20,6 +20,8 @@
 
         IGenericRepository<SubCategory> SubCategories { get; }
 
+        IGenericRepository<PurchasedBook> PurchasedBooks { get; }
+
         int SaveChanges();
     }
 }

@@ -10,11 +10,13 @@ namespace Bookie.Models
     {
         private ICollection<Book> books;
         private ICollection<BookComment> bookComments;
+        private ICollection<PurchasedBook> purchasedBooks;
 
         public User()
         {
             this.books = new HashSet<Book>();
             this.bookComments = new HashSet<BookComment>();
+            this.purchasedBooks = new HashSet<PurchasedBook>();
         }
 
         public virtual ICollection<Book> Books
@@ -38,6 +40,18 @@ namespace Bookie.Models
             set
             {
                 this.bookComments = value;
+            }
+        }
+
+        public virtual ICollection<PurchasedBook> PurchasedBooks
+        {
+            get
+            {
+                return this.purchasedBooks;
+            }
+            set
+            {
+                this.purchasedBooks = value;
             }
         }
 
