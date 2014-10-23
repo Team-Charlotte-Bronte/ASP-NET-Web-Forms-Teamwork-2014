@@ -31,13 +31,13 @@ namespace Bookie.Web.Books {
         protected global::System.Web.UI.WebControls.TextBox Name;
         
         /// <summary>
-        /// CatalogNumber control.
+        /// Image control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CatalogNumber;
+        protected global::System.Web.UI.WebControls.FileUpload Image;
         
         /// <summary>
         /// DropDownListCategories control.
@@ -47,6 +47,15 @@ namespace Bookie.Web.Books {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownListCategories;
+        
+        /// <summary>
+        /// SubCategoriesDropDownContainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl SubCategoriesDropDownContainer;
         
         /// <summary>
         /// DropDownListSubCategories control.
@@ -65,6 +74,24 @@ namespace Bookie.Web.Books {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Publisher;
+        
+        /// <summary>
+        /// Price control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Price;
+        
+        /// <summary>
+        /// IsUsed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox IsUsed;
         
         /// <summary>
         /// Isbn control.
@@ -110,32 +137,5 @@ namespace Bookie.Web.Books {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Year;
-        
-        /// <summary>
-        /// Price control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Price;
-        
-        /// <summary>
-        /// IsUsed control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox IsUsed;
-        
-        /// <summary>
-        /// Image control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload Image;
     }
 }

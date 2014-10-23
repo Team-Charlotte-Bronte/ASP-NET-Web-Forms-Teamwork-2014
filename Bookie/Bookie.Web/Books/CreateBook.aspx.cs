@@ -1,21 +1,27 @@
-﻿using Bookie.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-namespace Bookie.Web.Books
+﻿namespace Bookie.Web.Books
 {
-    public partial class CreateBook : System.Web.UI.Page
+    using System;
+    using System.IO;
+    using System.Linq;
+    using Bookie.EverliveAPI;
+    using Bookie.EverliveAPI.Contracts;
+    using Bookie.Models;
+    using Bookie.Web.Infrastructure;
+    using Bookie.Web.Models;
+
+    public partial class CreateBook : BasePage
     {
+        private IUserIdProvider userIdProvider = new AspNetUserIdProvider();
+        private IImageUploader imageUploader = new ImageUploader();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            if (!this.Page.IsPostBack)
             {
-                var categories = GetCategories();
-                var categoryNames = categories.Select(x => x.Name).ToArray();
+                var categoryNames = this.Data.Categories.All()
+                                        .Select(x => x.Name)
+                                        .ToArray();
+
                 foreach (var name in categoryNames)
                 {
                     this.DropDownListCategories.Items.Add(name);
@@ -23,117 +29,157 @@ namespace Bookie.Web.Books
 
                 this.DropDownListCategories.DataBind();
                 this.DropDownListCategories.SelectedIndex = 0;
+                this.LoadSubCategories();
+            }
+        }
 
-                LoadSubCategories();
+        protected void OnCreateBookButtonClicked(object sender, EventArgs e)
+        {
+            var currentUserId = this.userIdProvider.GetUserId();
+            var numberOfBooks = this.Data.Books.All().Count();
+
+            var book = new Book()
+            {
+                Name = this.Name.Text,
+                AuthorComment = this.AuthorComment.Text,
+                Isbn = this.Isbn.Text,
+                CategoryId = this.GetCategoryId(),
+                SubCategoryId = this.GetSubCategoryId(),
+                PublisherId = this.GetPublisherId(),
+                Description = this.Description.Text,
+                IsUsed = this.IsUsed.Checked,
+                UserId = currentUserId,
+                CatalogNumber = numberOfBooks + 10000
+            };
+
+            this.ValidateNumberOfPages(book);
+            this.ValidateYear(book);
+            this.ValidatePrice(book);
+
+            var memoryStream = new MemoryStream(this.Image.FileBytes);
+            var imageUrl = this.imageUploader.UrlFromMemoryStream(memoryStream);
+            book.ImageUrl = imageUrl;
+
+            try
+            {
+                this.Data.Books.Add(book);
+                this.Data.SaveChanges();
+            }
+            catch (Exception exp)
+            {
+                throw new Exception("ERROR: Unable to Create Book - " + exp.Message.ToString(), exp);
+            }
+        }
+ 
+        protected void OnDropDownListCategoriesSelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.LoadSubCategories();
+        }
+
+        private void ValidatePrice(Book book)
+        {
+            decimal price;
+            if (!decimal.TryParse(this.Price.Text, out price))
+            {
+                throw new ArgumentException("Invalid price!");
+            }
+            else
+            {
+                book.Price = price;
+            }
+        }
+ 
+        private void ValidateYear(Book book)
+        {
+            int year;
+            if (!int.TryParse(this.Year.Text, out year))
+            {
+                book.Year = null;
+            }
+            else
+            {
+                book.Year = year;
+            }
+        }
+ 
+        private void ValidateNumberOfPages(Book book)
+        {
+            int numberOfPages;
+            if (!int.TryParse(this.NumberOfPages.Text, out numberOfPages))
+            {
+                book.NumberOfPages = null;
+            }
+            else
+            {
+                book.NumberOfPages = numberOfPages;
             }
         }
 
         private void LoadSubCategories()
         {
-            var subCategories = GetSubCategories();
-            var categoryId = GetCategoryId();
-            var subCategoryNames = subCategories.Where(x => x.CategoryId == categoryId).Select(x => x.Name).ToArray();
             this.DropDownListSubCategories.Items.Clear();
+            var categoryId = this.GetCategoryId();
+            var subCategoryNames = this.Data.SubCategories.All()
+                                       .Where(x => x.CategoryId == categoryId)
+                                       .Select(x => x.Name)
+                                       .ToArray();
+
             foreach (var name in subCategoryNames)
             {
                 this.DropDownListSubCategories.Items.Add(name);
             }
+
             this.DropDownListSubCategories.DataBind();
-            //this.DropDownListSubCategories.SelectedIndex = 0;
-        }
-
-        private IQueryable<SubCategory> GetSubCategories()
-        {
-            var _db = new Bookie.Data.BookieDbContext();
-            IQueryable<SubCategory> query = _db.SubCategories;
-            return query;
-        }
-
-        private IQueryable<Category> GetCategories()
-        {
-            var _db = new Bookie.Data.BookieDbContext();
-            IQueryable<Category> query = _db.Categories;
-            return query;
-        }
-
-        private IQueryable<Publisher> GetPublishers()
-        {
-            var _db = new Bookie.Data.BookieDbContext();
-            IQueryable<Publisher> query = _db.Publishers;
-            return query;
+            this.SubCategoriesDropDownContainer.Visible = subCategoryNames.Count() != 0;
         }
 
         private Guid GetCategoryId() 
         {
-            var categories = GetCategories();
-            var categoryId = categories.Where(x => x.Name == this.DropDownListCategories.SelectedItem.Text).Select(x => x.Id).FirstOrDefault();
+            var categoryId = this.Data.Categories.All()
+                                 .Where(x => x.Name == this.DropDownListCategories.SelectedItem.Text)
+                                 .Select(x => x.Id)
+                                 .FirstOrDefault();
             return categoryId; 
         }
-        private Guid GetSubCategoryId()
+
+        private Guid? GetSubCategoryId()
         {
-            var subCategories = GetSubCategories();
-            var subCategoryId = subCategories.Where(x => x.Name == this.DropDownListSubCategories.SelectedItem.Text).Select(x => x.Id).FirstOrDefault();
+            if (this.DropDownListSubCategories.SelectedItem == null)
+            {
+                return null;
+            }
+
+            var subCategoryId = this.Data.SubCategories.All()
+                                    .Where(x => x.Name == this.DropDownListSubCategories.SelectedItem.Text)
+                                    .Select(x => x.Id)
+                                    .FirstOrDefault();
             return subCategoryId; 
         }
 
         private Guid GetPublisherId()
         {
-            var publishers = GetPublishers();
-            var publisherId = publishers.Where(x => x.Name == this.Publisher.Text).Select(x => x.Id).FirstOrDefault();
-            if (publisherId == null)
+            var publisherId = this.Data.Publishers.All()
+                                  .Where(x => x.Name == this.Publisher.Text)
+                                  .Select(x => x.Id)
+                                  .FirstOrDefault();
+
+            if (publisherId == Guid.Empty)
             {
-                var _db = new Bookie.Data.BookieDbContext();
-                _db.Publishers.Add(new Publisher()
+                this.Data.Publishers.Add(new Publisher()
                 {
                     Name = this.Publisher.Text
                 });
-                _db.SaveChanges();
-                publisherId = publishers.Where(x => x.Name == this.Publisher.Text).Select(x => x.Id).FirstOrDefault();
+
+                this.Data.SaveChanges();
+
+                var newPublisherId = this.Data.Publishers.All()
+                                         .Where(x => x.Name == this.Publisher.Text)
+                                         .Select(x => x.Id)
+                                         .First();
+                return newPublisherId;
             }
+
             return publisherId;
-        }
-
-        protected void CreateBook_Click(object sender, EventArgs e)
-        {
-            
-            using (var db = new Bookie.Data.BookieDbContext())
-            {
-                var currentUser = db.Users.Where(x => x.UserName == this.User.Identity.Name).FirstOrDefault();
-                var current = this.User;
-                // TODO fix null reference exception
-                var book = new Book() { 
-                Name = this.Name.Text, 
-                AuthorComment = this.AuthorComment.Text, 
-                Isbn =  this.Isbn.Text,
-                CategoryId = GetCategoryId(),
-                SubCategoryId = GetSubCategoryId(),
-                PublisherId = GetPublisherId(),
-                DateAdded = DateTime.Now,
-                CatalogNumber = int.Parse(this.CatalogNumber.Text),
-                Description = this.Description.Text,
-                NumberOfPages = int.Parse(this.NumberOfPages.Text),
-                Year =  int.Parse(this.Year.Text),
-                Price = int.Parse(this.Price.Text),
-                IsAvailable = true,
-                IsApproved=false,
-                IsUsed = this.IsUsed.Checked,
-                UserId = currentUser.Id.ToString()
-                //Image
-            };
-                try
-                {
-                    db.Books.Add(book);
-                }
-                catch (Exception exp)
-                {
-                    throw new Exception("ERROR: Unable to Update Cart Item - " + exp.Message.ToString(), exp);
-                }
-            }
-        }
-
-        protected void DropDownListCategories_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            LoadSubCategories();
         }
     }
 }
