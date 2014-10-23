@@ -6,9 +6,20 @@
 //     the code is regenerated. 
 // </auto-generated>
 //------------------------------------------------------------------------------
-namespace Bookie.Web
-{
+
+namespace Bookie.Web {
+    
+    
     public partial class SiteMaster {
+        
+        /// <summary>
+        /// RepeaterCategories control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater RepeaterCategories;
         
         /// <summary>
         /// MainContent control.

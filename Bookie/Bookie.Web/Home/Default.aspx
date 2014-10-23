@@ -2,5 +2,6 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     zefze
+    <asp:Label Text="text" runat="server" ID="BaiHui" />
 
 </asp:Content>

@@ -3,131 +3,138 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head runat="server">
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BookieStore</title>
+    <head runat="server">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>BookieStore</title>
 
-    <asp:PlaceHolder runat="server">
+        <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
-    </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="Content/sb-admin-2.css" rel="stylesheet" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <link href="Content/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        </asp:PlaceHolder>
+        <webopt:bundlereference runat="server" path="~/Content/css" />
+        <link href="Content/sb-admin-2.css" rel="stylesheet" />
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <link href="Content/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-</head>
-<body>
-    <form runat="server">
-        <asp:ScriptManager runat="server">
-            <Scripts>
-                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
-                <%--Framework Scripts--%>
-                <asp:ScriptReference Name="MsAjaxBundle" />
-                <asp:ScriptReference Name="jquery" />
-                <asp:ScriptReference Name="bootstrap" />
-                <asp:ScriptReference Name="respond" />
-                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
-                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
-                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
-                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
-                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
-                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
-                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
-                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
-                <asp:ScriptReference Name="WebFormsBundle" />
+    </head>
+    <body>
+        <form runat="server">
+            <asp:ScriptManager runat="server">
+                <Scripts>
+                    <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                    <%--Framework Scripts--%>
+                    <asp:ScriptReference Name="MsAjaxBundle" />
+                    <asp:ScriptReference Name="jquery" />
+                    <asp:ScriptReference Name="bootstrap" />
+                    <asp:ScriptReference Name="respond" />
+
+                    <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                    <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                    <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                    <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                    <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                    <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                    <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                    <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                    <asp:ScriptReference Name="WebFormsBundle" />
                 <%--Site Scripts--%>
-            </Scripts>
-        </asp:ScriptManager>
+                </Scripts>
+            </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/">Bookie</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/Home/About">About</a></li>
-                        <li><a runat="server" href="~/Home/Contact">Contact</a></li>
-                     <asp:LoginView runat="server" ViewStateMode="Disabled">
-                            <RoleGroups>
-                                <asp:RoleGroup Roles="Admin">
-                                    <ContentTemplate>
-                                        <li><a runat="server" href="~/Account/Administration/AdminPanel">Admin Panel</a></li>
-                                    </ContentTemplate>
-                                </asp:RoleGroup>
-                            </RoleGroups>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" runat="server" href="~/">Bookie</a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a runat="server" href="~/">Home</a>
+                            </li>
+                            <li>
+                                <a runat="server" href="~/Home/About">About</a>
+                            </li>
+                            <li>
+                                <a runat="server" href="~/Home/Contact">Contact</a>
+                            </li>
+                            <asp:LoginView runat="server" ViewStateMode="Disabled">
+                                <RoleGroups>
+                                    <asp:RoleGroup Roles="Admin">
+                                        <ContentTemplate>
+                                            <li>
+                                                <a runat="server" href="~/Account/Administration/AdminPanel">Admin Panel</a>
+                                            </li>
+                                        </ContentTemplate>
+                                    </asp:RoleGroup>
+                                </RoleGroups>
+                            </asp:LoginView>
+                        </ul>
+
+                        <asp:LoginView runat="server" ViewStateMode="Disabled">
+                            <AnonymousTemplate>
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li>
+                                        <a runat="server" href="~/Account/Register">Register</a>
+                                    </li>
+                                    <li>
+                                        <a runat="server" href="~/Account/Login">Login</a>
+                                    </li>
+                                </ul>
+                            </AnonymousTemplate>
+                            <LoggedInTemplate>
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li>
+                                        <a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a>
+                                    </li>
+                                    <li>
+                                        <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                    </li>
+                                </ul>
+                            </LoggedInTemplate>
                         </asp:LoginView>
-                    </ul>
-
-                    <asp:LoginView runat="server" ViewStateMode="Disabled">
-                        <AnonymousTemplate>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Register">Register</a></li>
-                                <li><a runat="server" href="~/Account/Login">Login</a></li>
-                            </ul>
-                        </AnonymousTemplate>
-                        <LoggedInTemplate>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
-                                <li>
-                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                                </li>
-                            </ul>
-                        </LoggedInTemplate>
-                    </asp:LoginView>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <%--*******************--%>
-        <%--SIDEBAR STARTS HERE--%>
-        <%--*******************--%>
+            <%--*******************--%>
+            <%--SIDEBAR STARTS HERE--%>
+            <%--*******************--%>
 
-        <div class="navbar-default sidebar" role="navigation">
+            <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
                             <div class="input-group custom-search-form">
                                 <input type="text" class="form-control" placeholder="Search...">
                                 <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
+                                    <button class="btn btn-default" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
                             </div>
                             <!-- /input-group -->
-                            
+
                         </li>
-                        <li>
-                            <a class="active" href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                        </li>
-                        <li class="">
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level collapse" style="height: 0px;">
+
+                        <asp:Repeater ID="RepeaterCategories" ItemType="Bookie.Models.Category" runat="server">
+                            <ItemTemplate>
                                 <li>
-                                    <a href="flot.html">Flot Charts</a>
+                                    <a> <%#: Item.Name %></a>
                                 </li>
-                                <li>
-                                    <a href="morris.html">Morris.js Charts</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
-                        </li>
-                        <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
-                        </li>
+                               
+                                <br />
+                            </ItemTemplate>
+                        </asp:Repeater>
+
                         <li class="">
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
+                            <a href="#">
+                                <i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span>
+                            </a>
                             <ul class="nav nav-second-level collapse" style="height: 0px;">
                                 <li>
                                     <a href="panels-wells.html">Panels and Wells</a>
@@ -147,38 +154,11 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+
                         <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level collapse">
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level collapse">
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.nav-third-level -->
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
+                            <a href="#">
+                                <i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span>
+                            </a>
                             <ul class="nav nav-second-level collapse">
                                 <li>
                                     <a href="blank.html">Blank Page</a>
@@ -194,25 +174,26 @@
                 <!-- /.sidebar-collapse -->
             </div>
 
-        <div class="container body-content" id="page-wrapper">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
-            <div class="panel-footer navbar-fixed-bottom">
-                <footer class="text-center">
-                    <small>
-                        <a href="https://github.com/Team-Charlotte-Bronte" target="_blank">Team "Charlotte Bronte"</a>
-                        &#169; 2014,
-                        <a href="http://telerikacademy.com/" target="_blank">Telerik Academy</a>
-                    </small>
-                    <br />
-                    <small>
-                        <a href="https://github.com/Team-Charlotte-Bronte/ASP-NET-Web-Forms-Teamwork-2014" target="_blank">Open Source Project at GitHub</a>
-                    </small>
-                </footer>
+            <div class="container body-content" id="page-wrapper">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+                <div class="panel-footer navbar-fixed-bottom">
+                    <footer class="text-center">
+                        <small>
+                            <a href="https://github.com/Team-Charlotte-Bronte" target="_blank">Team "Charlotte Bronte"</a>
+                            &#169; 2014,
+                            <a href="http://telerikacademy.com/" target="_blank">Telerik Academy</a>
+                        </small>
+                        <br />
+                        <small>
+                            <a href="https://github.com/Team-Charlotte-Bronte/ASP-NET-Web-Forms-Teamwork-2014" target="_blank">Open Source Project at GitHub</a>
+                        </small>
+                    </footer>
+                </div>
             </div>
-        </div>
-    </form>
-    <script src="Scripts/sb-admin-2.js"></script>
-    <script src="Scripts/metisMenu.min.js"></script>
-</body>
+        </form>
+        <script src='<%= ResolveClientUrl("~/Scripts/sb-admin-2.js") %>'></script>
+        <script src='<%= ResolveClientUrl("~/Scripts/metisMenu.min.js") %>'></script>
+
+    </body>
 </html>

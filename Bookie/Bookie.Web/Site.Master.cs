@@ -5,6 +5,7 @@
     using System.Web.Security;
     using System.Web.UI.WebControls;
     using Bookie.Web.Models;
+    using System.Linq;
 
     public partial class SiteMaster : BaseMasterPage
     {
@@ -65,6 +66,8 @@
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.RepeaterCategories.DataSource = this.Data.Categories.All().ToList();
+            this.RepeaterCategories.DataBind();
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
