@@ -33,9 +33,9 @@
                             <img src="<%#: Item.ImageUrl %>" />
                         </a>
                         <div class="text-left">
-                            <div>Title: <%#: Item.Name %></div>
+                            <div><%#: Item.Name %></div>
                             <div>
-                                Publisher: <strong><%#: Item.Publisher.Name %></strong>
+                                <strong><%#: Item.Publisher.Name %></strong>
                             </div>
                             <div>Price: $<%#: Item.Price %></div>
                         </div>
