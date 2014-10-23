@@ -126,7 +126,7 @@
                                     <asp:Repeater ID="RepeaterSubCategories" runat="server" ItemType="Bookie.Models.SubCategory"
                                                   DataSource="<%# GetSubcats(Item.Id) %>" >
                                         <HeaderTemplate>
-                                            <ul>
+                                            <ul class="nav nav-second-level collapse">
                                         </HeaderTemplate>
                                         <ItemTemplate>
                                             <li>

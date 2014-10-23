@@ -92,7 +92,7 @@ div.col-md-3.text-center div.well a.btn
 
 .books-pager
 {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    padding-top: 30px;
+    margin-bottom: 40px;
     clear: both;
 }
