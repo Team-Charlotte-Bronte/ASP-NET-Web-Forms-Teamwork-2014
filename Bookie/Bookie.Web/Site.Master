@@ -124,17 +124,10 @@
                         <asp:ListView ID="RepeaterCategories" ItemType="Bookie.Models.Category" runat="server">
                             <ItemTemplate>
                                 <li>
-                                    <a> <%#: String.Join(", ", Item.SubCategories) %></a>
-                                    <%--<asp:ListView runat="server" ID="Test" ItemType="Bookie.Models.SubCategory" DataSource="<%#: Item.SubCategories %>">
-                                        <ItemTemplate>
-                                            <%--<p><%#: Item %></p>--%>
-                                            <p>segzesg</p>
-                                        </ItemTemplate>
-                                    </asp:ListView>--%>
+                                    <a> <%#: Item.Name %><span class="fa arrow"></span></a>
                                     
-
-                                  <%--  <asp:Repeater ID="RepeaterSubCategories" runat="server" ItemType="Bookie.Models.SubCategory"
-                                                  DataSource="<%# ((Container.Parent.Parent as RepeaterItem).DataItem as Bookie.Models.Category).SubCategories %>" >
+                                    <asp:Repeater ID="RepeaterSubCategories" runat="server" ItemType="Bookie.Models.SubCategory"
+                                                  DataSource="<%# GetSubcats(Item.Id) %>" >
                                         <HeaderTemplate>
                                             <ul>
                                         </HeaderTemplate>
@@ -147,8 +140,7 @@
                                         <FooterTemplate>
                                             </ul>
                                         </FooterTemplate>
-                                    </asp:Repeater>--%>
-                                    
+                                    </asp:Repeater>
 
                                 </li>
 
@@ -156,44 +148,7 @@
                             </ItemTemplate>
                         </asp:ListView>
 
-                        <li class="">
-                            <a href="#">
-                                <i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span>
-                            </a>
-                            <ul class="nav nav-second-level collapse" style="height: 0px;">
-                                <li>
-                                    <a href="panels-wells.html">Panels and Wells</a>
-                                </li>
-                                <li>
-                                    <a href="buttons.html">Buttons</a>
-                                </li>
-                                <li>
-                                    <a href="notifications.html">Notifications</a>
-                                </li>
-                                <li>
-                                    <a href="typography.html">Typography</a>
-                                </li>
-                                <li>
-                                    <a href="grid.html">Grid</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span>
-                            </a>
-                            <ul class="nav nav-second-level collapse">
-                                <li>
-                                    <a href="blank.html">Blank Page</a>
-                                </li>
-                                <li>
-                                    <a href="login.html">Login Page</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
+                        
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

@@ -9,6 +9,7 @@
 using Bookie.Models;
     using Bookie.Data;
     using System.Diagnostics;
+using System.Collections;
 
     public partial class SiteMaster : BaseMasterPage
     {
@@ -69,16 +70,14 @@ using Bookie.Models;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var data = this.Data.Categories.All().ToList();
-            foreach (var item in data)
-            {
-                Debug.WriteLine(item);
-                Trace.Write(item.ToString());
-            }
-
-            this.RepeaterCategories.DataSource = data;
-
+            this.RepeaterCategories.DataSource = this.Data.Categories.All().ToList();
             this.RepeaterCategories.DataBind();
+        }
+
+        protected IEnumerable GetSubcats(Guid id)
+        {
+            var data = this.Data.SubCategories.All().Where(x => x.CategoryId == id).ToList();
+            return data;
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
