@@ -9,7 +9,7 @@
                 <div class="text-center books-pager">
                     <asp:DataPager ID="BookieDataPager" runat="server" PageSize="8" QueryStringField="page">
                         <Fields>
-                            <asp:NextPreviousPagerField ButtonCssClass="btn btn-default" ShowFirstPageButton="False" 
+                            <asp:NextPreviousPagerField ButtonCssClass="btn btn-default" ShowFirstPageButton="False"
                                                         ShowNextPageButton="False" ShowPreviousPageButton="True" PreviousPageText="Previous Page"  />
                             <asp:NumericPagerField NumericButtonCssClass="page-label" NextPreviousButtonCssClass="page-label" CurrentPageLabelCssClass="page-label" />
                             <asp:NextPreviousPagerField ButtonCssClass="btn btn-default" ShowLastPageButton="False" 
