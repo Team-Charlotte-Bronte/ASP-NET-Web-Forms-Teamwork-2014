@@ -10,7 +10,6 @@
         AllowPaging="True"
         AllowSorting="True"
         DataKeyNames="Id"
-        AutoGenerateEditButton="true"
         AutoGenerateSelectButton="true"
         OnSelectedIndexChanged="GridViewBooks_SelectedIndexChanged"
         AutoGenerateColumns="false"
@@ -30,46 +29,35 @@
     <asp:FormView runat="server" ID="FormViewDetails"
         ItemType="Bookie.Models.Book">
         <ItemTemplate>
-            <div class="modal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h4 class="modal-title">Book: <%#: Item.Name %></h4>
-                        </div>
-                        <div class="modal-body">
-                            <p>
-                                Name: <%#: Item.Name %>
-                                <br />
-                                ISBN: <%#: Item.Isbn %>
-                                <br />
-                                Year: <%#: Item.Year %>
-                                <br />
-                                Pages: <%#: Item.NumberOfPages %>
-                                <br />
-                                Category: <%#: Item.Category.Name %>
-                                <br />
-                                Subcategory: <%#: Item.SubCategory.Name %>
-                                <br />
-                                Price: <%#: Item.Price %>
-                                <br />
-                                Date Added: <%#: Item.DateAdded %>
-                                <br />
-                                Comments: <%#: string.Join("; ", Item.Comments)%>
-                                <br />
-                                Description: <%#: Item.Description%>
-                                <br />
-                                Publisher: <%#: Item.Publisher.Name %>
-                                <br />
-                                Is Approved: <%#: Item.IsApproved %>
-                                <br />
-                                Is Available: <%#: Item.IsAvailable %>
-                                <br />
-                                Is Used: <%#: Item.IsUsed %>
-                                <br />
-                            </p>
-                        </div>
-                    </div>
+            <div class="list-group">
+                <div class="list-group-item">
+                    <strong><%#: Item.Name %> </strong>
+                    <br />
+                    <em>ISBN</em> <%#: Item.Isbn %>
+                    <br />
+                    <em>Year:</em> <%#: Item.Year %>
+                    <br />
+                    <em>Pages:</em> <%#: Item.NumberOfPages %>
+                    <br />
+                    <em>Category:</em> <%#: Item.Category.Name == null ? " ": Item.Category.Name%>
+                    <br />
+                    <em>Subcategory:</em> <%#: Item.SubCategory.Name == null ? " ": Item.SubCategory.Name %>
+                    <br />
+                    <em>Price:</em> <%#: Item.Price %>
+                    <br />
+                    <em>Date Added:</em> <%#: Item.DateAdded %>
+                    <br />
+                    <em>Comments:</em> <%#: string.Join("; ", Item.Comments)%>
+                    <br />
+                    <em>Description:</em> <%#: Item.Description%>
+                    <br />
+                    <em>Publisher:</em> <%#: Item.Publisher.Name %>
+                    <br />
+                    <em>Is Approved:</em> <%#: Item.IsApproved %>
+                    <br />
+                    <em>Is Available:</em> <%#: Item.IsAvailable %>
+                    <br />
+                    <em>Is Used:</em> <%#: Item.IsUsed %>
                 </div>
             </div>
         </ItemTemplate>
