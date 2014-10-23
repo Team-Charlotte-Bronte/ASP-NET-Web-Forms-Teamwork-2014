@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookie.Common", "Bookie.Com
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookie.Web", "Bookie.Web\Bookie.Web.csproj", "{0A9C958F-AE03-4E41-8343-A398F977AEC4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookie.EverliveAPI", "Bookie.EverliveAPI\Bookie.EverliveAPI.csproj", "{601CF754-16BE-4009-BD8C-15D5E564911A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{0A9C958F-AE03-4E41-8343-A398F977AEC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A9C958F-AE03-4E41-8343-A398F977AEC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A9C958F-AE03-4E41-8343-A398F977AEC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{601CF754-16BE-4009-BD8C-15D5E564911A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{601CF754-16BE-4009-BD8C-15D5E564911A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{601CF754-16BE-4009-BD8C-15D5E564911A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{601CF754-16BE-4009-BD8C-15D5E564911A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
