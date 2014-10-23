@@ -11,7 +11,8 @@
         AllowSorting="True"
         DataKeyNames="Id"
         AutoGenerateEditButton="true"
-        AutoGenerateColumns="false">
+        AutoGenerateColumns="false"
+        CssClass="table table-hover table-striped">
 
         <Columns>
             <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
