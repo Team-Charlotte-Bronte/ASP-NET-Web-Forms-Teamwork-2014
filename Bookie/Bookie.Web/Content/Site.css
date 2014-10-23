@@ -1,7 +1,7 @@
 ﻿/* Move down content because we have a fixed navbar that is 50px tall */
 body
 {
-    /*padding-bottom: 80px;*/
+    padding-bottom: 60px;
 }
 
 /* Wrapping element */
@@ -66,15 +66,21 @@ div.row div img
 
 div.col-md-3.text-center div.well
 {
-    max-height: 320px;
-    height: 320px;
+    max-height: 325px;
+    height: 325px;
 }
 
 div.col-md-3.text-center div.well img
 {
-    max-height: 200px;
+    max-height: 180px;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+div.col-md-3.text-center div.well a.btn
+{
+    margin-top: 5px;
+    text-align: center; 
 }
 
 .page-label
@@ -86,9 +92,7 @@ div.col-md-3.text-center div.well img
 
 .books-pager
 {
-    margin-left: 200px;
-    bottom: 80px;
-    position: absolute;
-    left: 0;
-    right: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    clear: both;
 }

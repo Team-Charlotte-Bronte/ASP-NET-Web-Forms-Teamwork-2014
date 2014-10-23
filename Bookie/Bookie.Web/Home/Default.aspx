@@ -8,10 +8,10 @@
                 <div class="text-center books-pager">
                     <asp:DataPager ID="BookieDataPager" runat="server" PageSize="8" QueryStringField="page">
                         <Fields>
-                            <asp:NextPreviousPagerField ButtonCssClass="btn btn-primary" ShowFirstPageButton="False" 
+                            <asp:NextPreviousPagerField ButtonCssClass="btn btn-default" ShowFirstPageButton="False" 
                                                         ShowNextPageButton="False" ShowPreviousPageButton="True" PreviousPageText="Previous Page"  />
                             <asp:NumericPagerField NumericButtonCssClass="page-label" NextPreviousButtonCssClass="page-label" CurrentPageLabelCssClass="page-label" />
-                            <asp:NextPreviousPagerField ButtonCssClass="btn btn-primary" ShowLastPageButton="False" 
+                            <asp:NextPreviousPagerField ButtonCssClass="btn btn-default" ShowLastPageButton="False" 
                                                         ShowNextPageButton="True" ShowPreviousPageButton="False" NextPageText="Next Page" />
                         </Fields>
                     </asp:DataPager>
@@ -25,7 +25,9 @@
             <ItemTemplate>
                 <div class="col-md-3 text-center">
                     <div class="well">
-                        <img src="<%#: Item.ImageUrl %>" />
+                        <a href="/Books/Details?book=<%#: Item.Id %>" title="See book's details">
+                            <img src="<%#: Item.ImageUrl %>" rel="See book's details"/>
+                        </a>
                         <div class="text-left">
                             <div>Title: <%#: Item.Name %></div>
                             <div>
@@ -33,6 +35,10 @@
                             </div>
                             <div>Price: $<%#: Item.Price %></div>
                         </div>
+
+                        <a href="/Books/Details?book=<%#: Item.Id %>" class="btn btn-info btn-sm btn-block" title="See book's details">
+                            See Details
+                        </a>
                     </div>
                 </div>
             </ItemTemplate>
