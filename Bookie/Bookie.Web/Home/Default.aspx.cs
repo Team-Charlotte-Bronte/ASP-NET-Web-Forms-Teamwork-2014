@@ -9,8 +9,6 @@
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var categories = this.Data.Categories.All().Select(c=> c.Name);
-            this.BaiHui.Text = String.Join(", ", categories);
         }
     }
 }
