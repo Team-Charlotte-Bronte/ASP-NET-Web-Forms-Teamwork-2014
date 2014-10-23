@@ -14,6 +14,7 @@
         public Book()
         {
             this.Id = Guid.NewGuid();
+            this.DateAdded = DateTime.Now;
             this.authors = new HashSet<Author>();
             this.comments = new HashSet<BookComment>();
         }
@@ -35,6 +36,8 @@
 
         public string Isbn { get; set; }
 
+        public DateTime DateAdded { get; set; }
+
         [Range(0, 5000)]
         public int? NumberOfPages { get; set; }
 
@@ -43,6 +46,8 @@
         public byte[] Image { get; set; }
 
         public bool? IsAvailable { get; set; }
+
+        public bool IsApproved { get; set; }
 
         public bool IsUsed { get; set; }
 
@@ -57,6 +62,16 @@
         public Guid PublisherId { get; set; }
 
         public virtual Publisher Publisher { get; set; }
+
+        [ForeignKey("Category")]
+        public Guid? CategoryId { get; set; }
+
+        public virtual Category Category { get; set; }
+
+        [ForeignKey("SubCategory")]
+        public Guid? SubCategoryId { get; set; }
+
+        public virtual SubCategory SubCategory { get; set; }
 
         public virtual ICollection<Author> Authors
         {

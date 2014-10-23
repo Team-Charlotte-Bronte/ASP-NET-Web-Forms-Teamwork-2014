@@ -49,7 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Category.cs" />
     <Compile Include="Publisher.cs" />
+    <Compile Include="PurchasedBook.cs" />
+    <Compile Include="SubCategory.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Author.cs" />
     <Compile Include="Book.cs" />

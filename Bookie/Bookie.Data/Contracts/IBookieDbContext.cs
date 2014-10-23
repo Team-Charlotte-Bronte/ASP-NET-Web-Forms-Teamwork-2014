@@ -16,5 +16,11 @@
         IDbSet<BookComment> BookComments { get; set; }
 
         IDbSet<Publisher> Publishers { get; set; }
+
+        IDbSet<Category> Categories { get; set; }
+
+        IDbSet<SubCategory> SubCategories { get; set; }
+
+        IDbSet<PurchasedBook> PurchasedBooks { get; set; }
     }
 }

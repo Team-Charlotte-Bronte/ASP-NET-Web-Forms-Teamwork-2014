@@ -25,6 +25,12 @@ namespace Bookie.Data
 
         public IDbSet<Publisher> Publishers { get; set; }
 
+        public IDbSet<Category> Categories { get; set; }
+
+        public IDbSet<SubCategory> SubCategories { get; set; }
+
+        public IDbSet<PurchasedBook> PurchasedBooks { get; set; }
+
         public static BookieDbContext Create()
         {
             return new BookieDbContext();

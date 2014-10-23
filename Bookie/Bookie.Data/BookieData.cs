@@ -63,6 +63,30 @@
             }
         }
 
+        public IGenericRepository<Category> Categories
+        {
+            get
+            {
+                return this.GetRepository<Category>();
+            }
+        }
+
+        public IGenericRepository<SubCategory> SubCategories
+        {
+            get
+            {
+                return this.GetRepository<SubCategory>();
+            }
+        }
+
+        public IGenericRepository<PurchasedBook> PurchasedBooks
+        {
+            get
+            {
+                return this.GetRepository<PurchasedBook>();
+            }
+        }
+
         public int SaveChanges()
         {
             return this.context.SaveChanges();
