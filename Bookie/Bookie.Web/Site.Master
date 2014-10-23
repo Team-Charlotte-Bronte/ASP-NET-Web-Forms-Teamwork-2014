@@ -122,7 +122,7 @@
                             <ItemTemplate>
                                 <li>
                                     <a> <%#: Item.Name %><span class="fa arrow"></span></a>
-                                    
+
                                     <asp:Repeater ID="RepeaterSubCategories" runat="server" ItemType="Bookie.Models.SubCategory"
                                                   DataSource="<%# GetSubcats(Item.Id) %>" >
                                         <HeaderTemplate>
@@ -130,8 +130,7 @@
                                         </HeaderTemplate>
                                         <ItemTemplate>
                                             <li>
-
-                                                <a href="<%#: Item.Name %>"><%#: Item.Name %></a>
+                                                <a href="?CategoryId=<%#: Item.Id %>"><%#: Item.Name %></a>
                                             </li>
                                         </ItemTemplate>
                                         <FooterTemplate>
@@ -143,7 +142,6 @@
                             </ItemTemplate>
                         </asp:ListView>
 
-                        
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

@@ -9,7 +9,7 @@
         protected void Page_Load(object sender, EventArgs e)
         {
             var books = this.Data.Books.All().ToList();
-
+           
             this.BooksListView.DataSource = books;
             this.BooksListView.DataBind();
         }
