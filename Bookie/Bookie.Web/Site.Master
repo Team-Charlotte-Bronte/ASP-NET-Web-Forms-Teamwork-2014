@@ -55,7 +55,7 @@
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/Home/About">About</a></li>
                         <li><a runat="server" href="~/Home/Contact">Contact</a></li>
-                           <asp:LoginView runat="server" ViewStateMode="Disabled">
+                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                             <RoleGroups>
                                 <asp:RoleGroup Roles="Admin">
                                     <ContentTemplate>
