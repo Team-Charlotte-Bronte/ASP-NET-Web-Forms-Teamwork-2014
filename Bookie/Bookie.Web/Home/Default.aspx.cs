@@ -8,7 +8,8 @@
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var books = this.Data.Books.All();
+            var books = this.Data.Books.All()
+                            .Where(b => b.IsApproved);
 
             var filterCategoryId = this.Request.QueryString["category"];
             if (filterCategoryId != null)

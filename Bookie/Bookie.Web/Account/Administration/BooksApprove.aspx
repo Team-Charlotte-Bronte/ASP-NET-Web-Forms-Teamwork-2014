@@ -16,6 +16,14 @@ Inherits="Bookie.Web.Account.Administration.BooksApprove" %>
                   AutoGenerateColumns="false"
                   CssClass="table table-hover table-striped">
 
+        <EmptyDataTemplate>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2>There are no books to approval!</h2>
+                </div>
+            </div>
+        </EmptyDataTemplate>
+
         <Columns>
             <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
             <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
@@ -23,4 +31,5 @@ Inherits="Bookie.Web.Account.Administration.BooksApprove" %>
             <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" DataFormatString="{0:c}" />
         </Columns>
     </asp:GridView>
+
 </asp:Content>
