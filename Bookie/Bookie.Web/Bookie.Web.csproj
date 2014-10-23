@@ -174,6 +174,11 @@
     <Content Include="Content\font-awesome-4.1.0\css\font-awesome.min.css" />
     <Content Include="Content\font-awesome-4.1.0\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\sb-admin-2.css" />
+    <Content Include="Account\Administration\BooksApprove.aspx" />
+    <Content Include="Account\Administration\BooksPanel.aspx" />
+    <Content Include="Account\Administration\CommentsApproval.aspx" />
+    <Content Include="Account\Administration\CommentsPanel.aspx" />
+    <Content Include="Account\Administration\UsersPanel.aspx" />
     <Content Include="Home\About.aspx" />
     <Content Include="Account\AddPhoneNumber.aspx" />
     <Content Include="Account\Confirm.aspx" />
@@ -200,36 +205,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
-    <Content Include="Content\font-awesome-4.1.0\fonts\fontawesome-webfont.eot" />
-    <Content Include="Content\font-awesome-4.1.0\fonts\fontawesome-webfont.ttf" />
-    <Content Include="Content\font-awesome-4.1.0\fonts\fontawesome-webfont.woff" />
-    <Content Include="Content\font-awesome-4.1.0\fonts\FontAwesome.otf" />
-    <Content Include="Content\font-awesome-4.1.0\less\bordered-pulled.less" />
-    <Content Include="Content\font-awesome-4.1.0\less\core.less" />
-    <Content Include="Content\font-awesome-4.1.0\less\fixed-width.less" />
-    <Content Include="Content\font-awesome-4.1.0\less\font-awesome.less" />
-    <Content Include="Content\font-awesome-4.1.0\less\icons.less" />
-    <Content Include="Content\font-awesome-4.1.0\less\larger.less" />
-    <Content Include="Content\font-awesome-4.1.0\less\list.less" />
-    <Content Include="Content\font-awesome-4.1.0\less\mixins.less" />
-    <Content Include="Content\font-awesome-4.1.0\less\path.less" />
-    <Content Include="Content\font-awesome-4.1.0\less\rotated-flipped.less" />
-    <Content Include="Content\font-awesome-4.1.0\less\spinning.less" />
-    <Content Include="Content\font-awesome-4.1.0\less\stacked.less" />
-    <Content Include="Content\font-awesome-4.1.0\less\variables.less" />
-    <Content Include="Content\font-awesome-4.1.0\scss\font-awesome.scss" />
-    <Content Include="Content\font-awesome-4.1.0\scss\_bordered-pulled.scss" />
-    <Content Include="Content\font-awesome-4.1.0\scss\_core.scss" />
-    <Content Include="Content\font-awesome-4.1.0\scss\_fixed-width.scss" />
-    <Content Include="Content\font-awesome-4.1.0\scss\_icons.scss" />
-    <Content Include="Content\font-awesome-4.1.0\scss\_larger.scss" />
-    <Content Include="Content\font-awesome-4.1.0\scss\_list.scss" />
-    <Content Include="Content\font-awesome-4.1.0\scss\_mixins.scss" />
-    <Content Include="Content\font-awesome-4.1.0\scss\_path.scss" />
-    <Content Include="Content\font-awesome-4.1.0\scss\_rotated-flipped.scss" />
-    <Content Include="Content\font-awesome-4.1.0\scss\_spinning.scss" />
-    <Content Include="Content\font-awesome-4.1.0\scss\_stacked.scss" />
-    <Content Include="Content\font-awesome-4.1.0\scss\_variables.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -286,12 +261,54 @@
     <Compile Include="Account\AddPhoneNumber.aspx.designer.cs">
       <DependentUpon>AddPhoneNumber.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Account\Administration\Administration.master.cs">
+      <DependentUpon>Administration.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Administration\Administration.master.designer.cs">
+      <DependentUpon>Administration.master</DependentUpon>
+    </Compile>
     <Compile Include="Account\Administration\AdminPanel.aspx.cs">
       <DependentUpon>AdminPanel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Account\Administration\AdminPanel.aspx.designer.cs">
       <DependentUpon>AdminPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Administration\BooksApprove.aspx.cs">
+      <DependentUpon>BooksApprove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Administration\BooksApprove.aspx.designer.cs">
+      <DependentUpon>BooksApprove.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Administration\BooksPanel.aspx.cs">
+      <DependentUpon>BooksPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Administration\BooksPanel.aspx.designer.cs">
+      <DependentUpon>BooksPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Administration\CommentsApproval.aspx.cs">
+      <DependentUpon>CommentsApproval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Administration\CommentsApproval.aspx.designer.cs">
+      <DependentUpon>CommentsApproval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Administration\CommentsPanel.aspx.cs">
+      <DependentUpon>CommentsPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Administration\CommentsPanel.aspx.designer.cs">
+      <DependentUpon>CommentsPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Administration\UsersPanel.aspx.cs">
+      <DependentUpon>UsersPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Administration\UsersPanel.aspx.designer.cs">
+      <DependentUpon>UsersPanel.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\Confirm.aspx.cs">
       <DependentUpon>Confirm.aspx</DependentUpon>
