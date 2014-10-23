@@ -170,6 +170,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Administration\AdminPanel.aspx" />
+    <Content Include="Books\CreateBook.aspx" />
     <Content Include="Content\font-awesome-4.1.0\css\font-awesome.css" />
     <Content Include="Content\font-awesome-4.1.0\css\font-awesome.min.css" />
     <Content Include="Content\font-awesome-4.1.0\fonts\fontawesome-webfont.svg" />
@@ -407,6 +408,13 @@
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Books\CreateBook.aspx.cs">
+      <DependentUpon>CreateBook.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Books\CreateBook.aspx.designer.cs">
+      <DependentUpon>CreateBook.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Home\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -471,6 +479,10 @@
     <ProjectReference Include="..\Bookie.Data\Bookie.Data.csproj">
       <Project>{02ddee07-eac2-452c-8842-b17e5fd9ab34}</Project>
       <Name>Bookie.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bookie.EverliveAPI\Bookie.EverliveAPI.csproj">
+      <Project>{601CF754-16BE-4009-BD8C-15D5E564911A}</Project>
+      <Name>Bookie.EverliveAPI</Name>
     </ProjectReference>
     <ProjectReference Include="..\Bookie.Models\Bookie.Models.csproj">
       <Project>{dc16465a-e2dc-4313-a07a-7fc34437d812}</Project>
