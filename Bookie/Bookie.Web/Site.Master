@@ -57,10 +57,7 @@
                                 <a runat="server" href="~/">Home</a>
                             </li>
                             <li>
-                                <a runat="server" href="~/Home/About">About</a>
-                            </li>
-                            <li>
-                                <a runat="server" href="~/Home/Contact">Contact</a>
+                                <a runat="server" href="~/Books/Create.aspx">Publish Book</a>
                             </li>
                             <asp:LoginView runat="server" ViewStateMode="Disabled">
                                 <RoleGroups>

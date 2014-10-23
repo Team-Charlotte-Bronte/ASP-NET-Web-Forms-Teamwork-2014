@@ -67,7 +67,7 @@
             }
             catch (Exception exp)
             {
-                throw new Exception("ERROR: Unable to Create Book - " + exp.Message.ToString(), exp);
+                throw new Exception("Unable to Create Book - " + exp.Message.ToString(), exp);
             }
         }
  

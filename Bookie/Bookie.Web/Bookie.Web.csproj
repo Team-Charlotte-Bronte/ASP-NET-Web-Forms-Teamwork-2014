@@ -170,7 +170,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Administration\AdminPanel.aspx" />
-    <Content Include="Books\CreateBook.aspx" />
+    <Content Include="Books\Create.aspx" />
     <Content Include="Content\font-awesome-4.1.0\css\font-awesome.css" />
     <Content Include="Content\font-awesome-4.1.0\css\font-awesome.min.css" />
     <Content Include="Content\font-awesome-4.1.0\fonts\fontawesome-webfont.svg" />
@@ -408,12 +408,12 @@
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="Books\CreateBook.aspx.cs">
-      <DependentUpon>CreateBook.aspx</DependentUpon>
+    <Compile Include="Books\Create.aspx.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Books\CreateBook.aspx.designer.cs">
-      <DependentUpon>CreateBook.aspx</DependentUpon>
+    <Compile Include="Books\Create.aspx.designer.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
