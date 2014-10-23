@@ -1,15 +1,12 @@
 ﻿namespace Bookie.Web
 {
     using System;
+    using System.Collections;
+    using System.Linq;
     using System.Web;
     using System.Web.Security;
     using System.Web.UI.WebControls;
     using Bookie.Web.Models;
-    using System.Linq;
-using Bookie.Models;
-    using Bookie.Data;
-    using System.Diagnostics;
-using System.Collections;
 
     public partial class SiteMaster : BaseMasterPage
     {
@@ -17,8 +14,20 @@ using System.Collections;
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         private string _antiXsrfTokenValue;
 
+        public void OnSearchButtonClicked(object sender, EventArgs e)
+        {
+            var searchInputValue = this.Server.HtmlEncode(this.BookSearchInput.Value);
+            this.Response.Redirect("~/?search=" + searchInputValue);
+        }
+
         protected void Page_Init(object sender, EventArgs e)
         {
+            var searchValue = this.Request.QueryString["search"];
+            if (!string.IsNullOrEmpty(searchValue))
+            {
+                this.BookSearchInput.Value = this.Server.HtmlEncode(searchValue);
+            }
+
             // The code below helps to protect against XSRF attacks
             var requestCookie = this.Request.Cookies[AntiXsrfTokenKey];
             Guid requestCookieGuidValue;
@@ -84,12 +93,5 @@ using System.Collections;
         {
             this.Context.GetOwinContext().Authentication.SignOut();
         }
-
-        protected void TestIte(SubCategory cat)
-        {
-            var testt = cat;
-
-        }
-
     }
 }

@@ -19,14 +19,18 @@
             </LayoutTemplate>
 
             <EmptyDataTemplate>
-                <div>No data was returned.</div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h2>There are no results based on your search parameters!</h2>
+                    </div>
+                </div>
             </EmptyDataTemplate>
 
             <ItemTemplate>
                 <div class="col-md-3 text-center">
                     <div class="well">
                         <a href="/Books/Details?book=<%#: Item.Id %>" title="See book's details">
-                            <img src="<%#: Item.ImageUrl %>" rel="See book's details"/>
+                            <img src="<%#: Item.ImageUrl %>" />
                         </a>
                         <div class="text-left">
                             <div>Title: <%#: Item.Name %></div>

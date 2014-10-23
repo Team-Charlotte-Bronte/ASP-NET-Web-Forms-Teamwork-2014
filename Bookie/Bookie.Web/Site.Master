@@ -107,15 +107,17 @@
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
                             <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
+                                <input type="text" class="form-control" placeholder="Search..." runat="server" id="BookSearchInput">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">
+                                    <button class="btn btn-default" type="button" runat="server" onserverclick="OnSearchButtonClicked">
                                         <i class="fa fa-search"></i>
                                     </button>
                                 </span>
                             </div>
-                            <!-- /input-group -->
+                        </li>
 
+                        <li>
+                            <a href="/">See all books<span class="fa"></span></a>
                         </li>
 
                         <asp:ListView ID="RepeaterCategories" ItemType="Bookie.Models.Category" runat="server">
@@ -130,7 +132,7 @@
                                         </HeaderTemplate>
                                         <ItemTemplate>
                                             <li>
-                                                <a href="?CategoryId=<%#: Item.Id %>"><%#: Item.Name %></a>
+                                                <a href="?category=<%#: Item.Id %>"><%#: Item.Name %></a>
                                             </li>
                                         </ItemTemplate>
                                         <FooterTemplate>
