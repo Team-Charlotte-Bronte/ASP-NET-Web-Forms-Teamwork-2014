@@ -171,6 +171,7 @@
   <ItemGroup>
     <Content Include="Account\Administration\AdminPanel.aspx" />
     <Content Include="Books\Create.aspx" />
+    <Content Include="Books\Details.aspx" />
     <Content Include="Books\Successful.aspx" />
     <Content Include="Content\font-awesome-4.1.0\css\font-awesome.css" />
     <Content Include="Content\font-awesome-4.1.0\css\font-awesome.min.css" />
@@ -413,6 +414,13 @@
     </Compile>
     <Compile Include="Books\Create.aspx.designer.cs">
       <DependentUpon>Create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Books\Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Books\Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
     </Compile>
     <Compile Include="Books\Successful.aspx.cs">
       <DependentUpon>Successful.aspx</DependentUpon>
