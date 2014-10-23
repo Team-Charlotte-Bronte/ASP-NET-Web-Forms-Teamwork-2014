@@ -101,32 +101,30 @@ namespace Bookie.Web.Books
                 var currentUser = db.Users.Where(x => x.UserName == this.User.Identity.Name).FirstOrDefault();
                 var current = this.User;
                 // TODO fix null reference exception
-                var book = new Book() { 
-                Name = this.Name.Text, 
-                AuthorComment = this.AuthorComment.Text, 
-                Isbn =  this.Isbn.Text,
-                CategoryId = GetCategoryId(),
-                SubCategoryId = GetSubCategoryId(),
-                PublisherId = GetPublisherId(),
-                DateAdded = DateTime.Now,
-                CatalogNumber = int.Parse(this.CatalogNumber.Text),
-                Description = this.Description.Text,
-                NumberOfPages = int.Parse(this.NumberOfPages.Text),
-                Year =  int.Parse(this.Year.Text),
-                Price = int.Parse(this.Price.Text),
-                IsAvailable = true,
-                IsApproved=false,
-                IsUsed = this.IsUsed.Checked,
-                UserId = currentUser.Id.ToString()
+                var book = new Book();
+                book.Name = this.Name.Text;
+                book.AuthorComment = this.AuthorComment.Text;
+                book.Isbn =  this.Isbn.Text;
+                book.CategoryId = GetCategoryId();
+                book.SubCategoryId = GetSubCategoryId();
+                book.PublisherId = GetPublisherId();
+                book.CatalogNumber = int.Parse(this.CatalogNumber.Text);
+                book.Description = this.Description.Text;
+                book.NumberOfPages = int.Parse(this.NumberOfPages.Text);
+                book.Year =  int.Parse(this.Year.Text);
+                book.Price = int.Parse(this.Price.Text);
+                book.IsAvailable = true;
+                book.IsApproved=false;
+                book.IsUsed = this.IsUsed.Checked;
+                book.UserId = currentUser.Id.ToString();
                 //Image
-            };
                 try
                 {
                     db.Books.Add(book);
                 }
                 catch (Exception exp)
                 {
-                    throw new Exception("ERROR: Unable to Update Cart Item - " + exp.Message.ToString(), exp);
+                    throw new Exception("ERROR: Unable to add book - " + exp.Message.ToString(), exp);
                 }
             }
         }
