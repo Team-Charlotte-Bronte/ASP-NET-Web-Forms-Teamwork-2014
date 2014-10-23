@@ -118,15 +118,40 @@
 
                         </li>
 
-                        <asp:Repeater ID="RepeaterCategories" ItemType="Bookie.Models.Category" runat="server">
+                        <asp:ListView ID="RepeaterCategories" ItemType="Bookie.Models.Category" runat="server">
                             <ItemTemplate>
                                 <li>
-                                    <a> <%#: Item.Name %></a>
+                                    <a> <%#: String.Join(", ", Item.SubCategories) %></a>
+                                    <%--<asp:ListView runat="server" ID="Test" ItemType="Bookie.Models.SubCategory" DataSource="<%#: Item.SubCategories %>">
+                                        <ItemTemplate>
+                                            <%--<p><%#: Item %></p>--%>
+                                            <p>segzesg</p>
+                                        </ItemTemplate>
+                                    </asp:ListView>--%>
+                                    
+
+                                  <%--  <asp:Repeater ID="RepeaterSubCategories" runat="server" ItemType="Bookie.Models.SubCategory"
+                                                  DataSource="<%# ((Container.Parent.Parent as RepeaterItem).DataItem as Bookie.Models.Category).SubCategories %>" >
+                                        <HeaderTemplate>
+                                            <ul>
+                                        </HeaderTemplate>
+                                        <ItemTemplate>
+                                            <li>
+
+                                                <a href="<%#: Item.Name %>"><%#: Item.Name %></a>
+                                            </li>
+                                        </ItemTemplate>
+                                        <FooterTemplate>
+                                            </ul>
+                                        </FooterTemplate>
+                                    </asp:Repeater>--%>
+                                    
+
                                 </li>
-                               
+
                                 <br />
                             </ItemTemplate>
-                        </asp:Repeater>
+                        </asp:ListView>
 
                         <li class="">
                             <a href="#">
