@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Create Book" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
-    CodeBehind="CreateBook.aspx.cs" Inherits="Bookie.Web.Books.CreateBook" %>
+    CodeBehind="Create.aspx.cs" Inherits="Bookie.Web.Books.CreateBook" %>
 
 <asp:Content runat="server" ID="CreateBookContent" ContentPlaceHolderID="MainContent">
     <h2><%: Title %>.</h2>
