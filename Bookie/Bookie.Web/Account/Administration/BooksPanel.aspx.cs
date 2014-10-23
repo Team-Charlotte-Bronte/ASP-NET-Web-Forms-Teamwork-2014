@@ -4,6 +4,7 @@
     using System.Linq;
     using Bookie.Models;
     using Bookie.Web.Models;
+    using System.Web.UI.WebControls;
 
     public partial class BooksPanel : BasePage
     {
@@ -36,6 +37,35 @@
             var id = this.GridViewBooks.SelectedDataKey.Value.ToString();
             this.FormViewDetails.DataSource = this.Data.Books.All().Where(b => b.Id.ToString() == id).ToArray();
             this.FormViewDetails.DataBind();
+        }
+
+        // The id parameter name should match the DataKeyNames value set on the control
+        public void FormViewDetails_UpdateItem(int id)
+        {
+            Bookie.Models.Book item = null;
+            // Load the item here, e.g. item = MyDataLayer.Find(id);
+            if (item == null)
+            {
+                // The item wasn't found
+                ModelState.AddModelError("", String.Format("Item with id {0} was not found", id));
+                return;
+            }
+            TryUpdateModel(item);
+            if (ModelState.IsValid)
+            {
+                // Save changes here, e.g. MyDataLayer.SaveChanges();
+
+            }
+        }
+
+        protected void FormViewDetails_ModeChanging(object sender, System.Web.UI.WebControls.FormViewModeEventArgs e)
+        {
+            this.FormViewDetails.ChangeMode(FormViewMode.Edit);
+        }
+
+        protected void Cancel(object sender, EventArgs e)
+        {
+            this.FormViewDetails.ChangeMode(FormViewMode.ReadOnly);
         }
     }
 }
