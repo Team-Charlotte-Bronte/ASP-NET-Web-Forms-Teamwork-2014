@@ -207,7 +207,7 @@
             </div>
         </div>
     </form>
-    <script src="Scripts/sb-admin-2.js"></script>
-    <script src="Scripts/metisMenu.min.js"></script>
+    <script src='<%= ResolveClientUrl("~/Scripts/sb-admin-2.js") %>'></script>
+    <script src='<%= ResolveClientUrl("~/Scripts/metisMenu.min.js") %>'></script>
 </body>
 </html>

@@ -12,7 +12,7 @@
                     <h3 class="panel-title">Assets</h3>
                 </div>
                 <div class="panel-body">
-                    <div class="well">
+                    <div>
                         <ul class="list-group">
                             <li class="list-group-item">
                                 <span class="badge">14</span>
@@ -38,7 +38,7 @@
                     <h3 class="panel-title">Pending Approval</h3>
                 </div>
                 <div class="panel-body">
-                    <div class="well">
+                    <div>
                         <ul class="list-group">
                             <li class="list-group-item">
                                 <span class="badge">2</span>
