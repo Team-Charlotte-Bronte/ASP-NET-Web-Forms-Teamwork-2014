@@ -6,9 +6,12 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-namespace Bookie.Web.Home
+
+namespace Bookie.Web.Books
 {
-    public partial class About
+
+
+    public partial class Successful
     {
     }
 }

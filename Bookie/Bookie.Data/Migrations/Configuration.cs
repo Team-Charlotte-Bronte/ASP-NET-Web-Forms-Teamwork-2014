@@ -110,10 +110,10 @@ namespace Bookie.Data.Migrations
                 }
             });
 
-            context.Categories.Add(new Category()
-            {
-                Name = "New editions"
-            });
+            //context.Categories.Add(new Category()
+            //{
+            //    Name = "New editions"
+            //});
 
             context.Categories.Add(new Category()
             {

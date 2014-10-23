@@ -1,7 +1,7 @@
 ﻿/* Move down content because we have a fixed navbar that is 50px tall */
 body
 {
-    padding-bottom: 80px;
+    /*padding-bottom: 80px;*/
 }
 
 /* Wrapping element */
@@ -48,11 +48,47 @@ div.navbar.navbar-inverse.navbar-static-top
     margin-bottom: 0;
 }
 
-div.container.body-content, #page-wrapper {
+div.container.body-content, #page-wrapper
+{
     margin-top: 50px !important;
     padding-top: 30px !important;
 }
 
-div.form-group div.col-md-9 input[type=text] {
+div.form-group div.col-md-9 input[type=text]
+{
     max-width: none;
+}
+
+div.row div img
+{
+    width: 100%;
+}
+
+div.col-md-3.text-center div.well
+{
+    max-height: 320px;
+    height: 320px;
+}
+
+div.col-md-3.text-center div.well img
+{
+    max-height: 200px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.page-label
+{
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 18px;
+}
+
+.books-pager
+{
+    margin-left: 200px;
+    bottom: 80px;
+    position: absolute;
+    left: 0;
+    right: 0;
 }

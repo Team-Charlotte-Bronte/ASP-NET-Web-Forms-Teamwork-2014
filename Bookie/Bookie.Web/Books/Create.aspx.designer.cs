@@ -31,15 +31,6 @@ namespace Bookie.Web.Books {
         protected global::System.Web.UI.WebControls.TextBox Name;
         
         /// <summary>
-        /// Image control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload Image;
-        
-        /// <summary>
         /// DropDownListCategories control.
         /// </summary>
         /// <remarks>
@@ -65,6 +56,15 @@ namespace Bookie.Web.Books {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownListSubCategories;
+        
+        /// <summary>
+        /// Image control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload Image;
         
         /// <summary>
         /// Publisher control.

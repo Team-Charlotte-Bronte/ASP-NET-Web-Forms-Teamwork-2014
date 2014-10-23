@@ -139,8 +139,6 @@
                                     </asp:Repeater>
 
                                 </li>
-
-                                <br />
                             </ItemTemplate>
                         </asp:ListView>
 

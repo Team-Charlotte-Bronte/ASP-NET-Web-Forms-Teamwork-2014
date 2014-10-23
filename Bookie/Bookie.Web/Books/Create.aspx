@@ -1,32 +1,20 @@
-﻿<%@ Page Title="Create Book" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
+﻿<%@ Page Title="Publish a new book" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
     CodeBehind="Create.aspx.cs" Inherits="Bookie.Web.Books.CreateBook" %>
 
 <asp:Content runat="server" ID="CreateBookContent" ContentPlaceHolderID="MainContent">
-    <h2><%: Title %>.</h2>
+    <h2><%: Title %></h2>
     <p class="text-danger">
         <asp:Literal runat="server" ID="ErrorMessage" />
     </p>
 
     <div class="form-horizontal col-md-8">
-        <h4>Create a new book</h4>
         <hr />
-       <%-- <asp:ValidationSummary runat="server" CssClass="text-danger" />--%>
-
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="Name" CssClass="col-md-3 control-label">Book's title</asp:Label>
             <div class="col-md-9">
                 <asp:TextBox runat="server" ID="Name" Placeholder="Enter a book's title (required)" CssClass="form-control" TextMode="SingleLine" />
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="Name"
                     CssClass="text-danger" ErrorMessage="Please enter a book's title!" />
-            </div>
-        </div>
-        
-        <div class="form-group">
-            <asp:Label runat="server" AssociatedControlID="Image" CssClass="col-md-3 control-label">Cover</asp:Label>
-            <div class="col-md-9">
-                <asp:FileUpload ID="Image" runat="server" CssClass="form-control" accept="image/*" />
-                <asp:RequiredFieldValidator runat="server" ControlToValidate="Image"
-                    CssClass="text-danger" ErrorMessage="Please upload an book's cover image!" />
             </div>
         </div>
 
@@ -41,6 +29,15 @@
             <asp:Label runat="server" AssociatedControlID="DropDownListSubCategories" CssClass="col-md-3 control-label">Subcategory</asp:Label>
             <div class="col-md-9">
                 <asp:DropDownList ID="DropDownListSubCategories" runat="server" CssClass="form-control"></asp:DropDownList>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="Image" CssClass="col-md-3 control-label">Cover</asp:Label>
+            <div class="col-md-9">
+                <asp:FileUpload ID="Image" runat="server" CssClass="form-control" accept="image/*" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="Image"
+                    CssClass="text-danger" ErrorMessage="Please upload an book's cover image!" />
             </div>
         </div>
 
