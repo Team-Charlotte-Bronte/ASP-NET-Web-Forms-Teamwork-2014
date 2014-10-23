@@ -3,10 +3,10 @@
     using System;
     using System.Web;
     using System.Web.Security;
-    using System.Web.UI;
     using System.Web.UI.WebControls;
+    using Bookie.Web.Models;
 
-    public partial class SiteMaster : MasterPage
+    public partial class SiteMaster : BaseMasterPage
     {
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
