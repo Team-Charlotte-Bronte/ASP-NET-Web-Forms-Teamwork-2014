@@ -5,8 +5,8 @@
         <asp:ListView ID="BooksListView" runat="server" ItemType="Bookie.Models.Book" DataKeyNames="Id" InsertItemPosition="None">
             <LayoutTemplate>
                 <span runat="server" id="itemPlaceholder" />
-                <div class="text-center">
-                    <asp:DataPager ID="BookieDataPager" runat="server" PageSize="8" class="asd">
+                <div class="text-center books-pager">
+                    <asp:DataPager ID="BookieDataPager" runat="server" PageSize="8" QueryStringField="page">
                         <Fields>
                             <asp:NextPreviousPagerField ButtonCssClass="btn btn-primary" ShowFirstPageButton="False" 
                                                         ShowNextPageButton="False" ShowPreviousPageButton="True" PreviousPageText="Previous Page"  />

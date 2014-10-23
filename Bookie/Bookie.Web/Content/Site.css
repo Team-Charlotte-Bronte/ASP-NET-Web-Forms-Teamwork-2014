@@ -1,7 +1,7 @@
 ﻿/* Move down content because we have a fixed navbar that is 50px tall */
 body
 {
-    padding-bottom: 80px;
+    /*padding-bottom: 80px;*/
 }
 
 /* Wrapping element */
@@ -82,4 +82,13 @@ div.col-md-3.text-center div.well img
     padding-left: 10px;
     padding-right: 10px;
     font-size: 18px;
+}
+
+.books-pager
+{
+    margin-left: 200px;
+    bottom: 80px;
+    position: absolute;
+    left: 0;
+    right: 0;
 }
