@@ -8,6 +8,7 @@ Inherits="Bookie.Web.Account.Administration.BooksPanel" %>
                   UpdateMethod="GridViewBooks_UpdateItem"
                   ItemType="Bookie.Models.Book"
                   AllowPaging="True"
+                  PageSize="5"
                   AllowSorting="True"
                   AutoGenerateEditButton="true" 
                   DataKeyNames="Id"
@@ -64,5 +65,4 @@ Inherits="Bookie.Web.Account.Administration.BooksPanel" %>
             </div>
         </ItemTemplate>
     </asp:FormView>
-
 </asp:Content>

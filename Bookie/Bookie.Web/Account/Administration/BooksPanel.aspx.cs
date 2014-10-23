@@ -31,10 +31,6 @@
             return books.OrderBy(b => b.Id);
         }
 
-        protected void Page_Load(object sender, EventArgs e)
-        {
-        }
-
         protected void GridViewBooks_SelectedIndexChanged(object sender, EventArgs e)
         {
             var id = this.GridViewBooks.SelectedDataKey.Value.ToString();
