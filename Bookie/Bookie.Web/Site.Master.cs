@@ -6,6 +6,9 @@
     using System.Web.UI.WebControls;
     using Bookie.Web.Models;
     using System.Linq;
+using Bookie.Models;
+    using Bookie.Data;
+    using System.Diagnostics;
 
     public partial class SiteMaster : BaseMasterPage
     {
@@ -66,7 +69,15 @@
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.RepeaterCategories.DataSource = this.Data.Categories.All().ToList();
+            var data = this.Data.Categories.All().ToList();
+            foreach (var item in data)
+            {
+                Debug.WriteLine(item);
+                Trace.Write(item.ToString());
+            }
+
+            this.RepeaterCategories.DataSource = data;
+
             this.RepeaterCategories.DataBind();
         }
 
@@ -74,5 +85,12 @@
         {
             this.Context.GetOwinContext().Authentication.SignOut();
         }
+
+        protected void TestIte(SubCategory cat)
+        {
+            var testt = cat;
+
+        }
+
     }
 }
