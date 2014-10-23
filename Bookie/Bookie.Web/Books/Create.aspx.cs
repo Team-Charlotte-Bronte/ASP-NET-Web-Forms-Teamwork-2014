@@ -64,6 +64,7 @@
             {
                 this.Data.Books.Add(book);
                 this.Data.SaveChanges();
+                this.Response.Redirect("Successful.aspx");
             }
             catch (Exception exp)
             {
