@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-namespace Bookie.Web.Account.Administration
+﻿namespace Bookie.Web.Account.Administration
 {
+    using System;
+    using System.Linq;
+
     public partial class UsersPanel : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

@@ -1,24 +1,26 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Account/Administration/Administration.master"
-    AutoEventWireup="true" CodeBehind="BooksPanel.aspx.cs"
-    Inherits="Bookie.Web.Account.Administration.BooksPanel" %>
+AutoEventWireup="true" CodeBehind="BooksPanel.aspx.cs"
+Inherits="Bookie.Web.Account.Administration.BooksPanel" %>
 
 <asp:Content ID="ContentBooks" ContentPlaceHolderID="AdminContent" runat="server">
     <asp:GridView ID="GridViewBooks" runat="server"
-        SelectMethod="GridViewBooks_GetData"
-        UpdateMethod="GridViewBooks_UpdateItem"
-        ItemType="Bookie.Models.Book"
-        AllowPaging="True"
-        AllowSorting="True"
-        DataKeyNames="Id"
-        AutoGenerateSelectButton="true"
-        OnSelectedIndexChanged="GridViewBooks_SelectedIndexChanged"
-        AutoGenerateColumns="false"
-        CssClass="table table-hover table-striped">
+                  SelectMethod="GridViewBooks_GetData"
+                  UpdateMethod="GridViewBooks_UpdateItem"
+                  ItemType="Bookie.Models.Book"
+                  AllowPaging="True"
+                  AllowSorting="True"
+                  AutoGenerateEditButton="true" 
+                  DataKeyNames="Id"
+                  AutoGenerateSelectButton="true"
+                  OnSelectedIndexChanged="GridViewBooks_SelectedIndexChanged"
+                  AutoGenerateColumns="false"
+                  CssClass="table table-hover table-striped">
 
         <Columns>
             <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-            <asp:BoundField DataField="Isbn" HeaderText="ISBN" />
-            <asp:BoundField DataField="CatalogNumber" HeaderText="Catalog Number" />
+            <asp:BoundField DataField="Isbn" HeaderText="ISBN" SortExpression="Isbn" />
+            <asp:BoundField DataField="CatalogNumber" HeaderText="Catalog Number" SortExpression="CatalogNumber" />
+            <asp:CheckBoxField DataField="IsApproved" HeaderText="Is Approved" SortExpression="IsApproved" />
             <asp:CheckBoxField DataField="IsAvailable" HeaderText="Available" SortExpression="IsAvailable" />
             <asp:CheckBoxField DataField="IsUsed" HeaderText="Used" SortExpression="IsUsed" />
             <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" DataFormatString="{0:c}" />
@@ -27,37 +29,37 @@
     <asp:Label Text="" runat="server" ID="LabelId" />
 
     <asp:FormView runat="server" ID="FormViewDetails"
-        ItemType="Bookie.Models.Book">
+                  ItemType="Bookie.Models.Book">
         <ItemTemplate>
             <div class="list-group">
                 <div class="list-group-item">
-                    <strong><%#: Item.Name %> </strong>
+                    <strong>Title:</strong> <%#: Item.Name %> 
                     <br />
-                    <em>ISBN</em> <%#: Item.Isbn %>
+                    <strong>ISBN:</strong> <%#: Item.Isbn %>
                     <br />
-                    <em>Year:</em> <%#: Item.Year %>
+                    <strong>Year:</strong> <%#: Item.Year %>
                     <br />
-                    <em>Pages:</em> <%#: Item.NumberOfPages %>
+                    <strong>Pages:</strong> <%#: Item.NumberOfPages %>
                     <br />
-                    <em>Category:</em> <%#: Item.Category.Name == null ? " ": Item.Category.Name%>
+                    <strong>Category:</strong> <%#: Item.Category.Name == null ? " ": Item.Category.Name%>
                     <br />
-                    <em>Subcategory:</em> <%#: Item.SubCategory.Name == null ? " ": Item.SubCategory.Name %>
+                    <strong>Subcategory:</strong> <%#: Item.SubCategory.Name == null ? " ": Item.SubCategory.Name %>
                     <br />
-                    <em>Price:</em> <%#: Item.Price %>
+                    <strong>Price:</strong> <%#: Item.Price %>
                     <br />
-                    <em>Date Added:</em> <%#: Item.DateAdded %>
+                    <strong>Date Added:</strong> <%#: Item.DateAdded %>
                     <br />
-                    <em>Comments:</em> <%#: string.Join("; ", Item.Comments)%>
+                    <strong>Comments:</strong> <%#: string.Join("; ", Item.Comments)%>
                     <br />
-                    <em>Description:</em> <%#: Item.Description%>
+                    <strong>Description:</strong> <%#: Item.Description%>
                     <br />
-                    <em>Publisher:</em> <%#: Item.Publisher.Name %>
+                    <strong>Publisher:</strong> <%#: Item.Publisher.Name %>
                     <br />
-                    <em>Is Approved:</em> <%#: Item.IsApproved %>
+                    <strong>Is Approved:</strong> <%#: Item.IsApproved %>
                     <br />
-                    <em>Is Available:</em> <%#: Item.IsAvailable %>
+                    <strong>Is Available:</strong> <%#: Item.IsAvailable %>
                     <br />
-                    <em>Is Used:</em> <%#: Item.IsUsed %>
+                    <strong>Is Used:</strong> <%#: Item.IsUsed %>
                 </div>
             </div>
         </ItemTemplate>
