@@ -11,6 +11,8 @@
         AllowSorting="True"
         DataKeyNames="Id"
         AutoGenerateEditButton="true"
+        AutoGenerateSelectButton="true"
+        OnSelectedIndexChanged="GridViewBooks_SelectedIndexChanged"
         AutoGenerateColumns="false"
         CssClass="table table-hover table-striped">
 
@@ -23,4 +25,54 @@
             <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" DataFormatString="{0:c}" />
         </Columns>
     </asp:GridView>
+    <asp:Label Text="" runat="server" ID="LabelId" />
+
+    <asp:FormView runat="server" ID="FormViewDetails"
+        ItemType="Bookie.Models.Book">
+        <ItemTemplate>
+            <div class="modal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title">Book: <%#: Item.Name %></h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                Name: <%#: Item.Name %>
+                                <br />
+                                ISBN: <%#: Item.Isbn %>
+                                <br />
+                                Year: <%#: Item.Year %>
+                                <br />
+                                Pages: <%#: Item.NumberOfPages %>
+                                <br />
+                                Category: <%#: Item.Category.Name %>
+                                <br />
+                                Subcategory: <%#: Item.SubCategory.Name %>
+                                <br />
+                                Price: <%#: Item.Price %>
+                                <br />
+                                Date Added: <%#: Item.DateAdded %>
+                                <br />
+                                Comments: <%#: string.Join("; ", Item.Comments)%>
+                                <br />
+                                Description: <%#: Item.Description%>
+                                <br />
+                                Publisher: <%#: Item.Publisher.Name %>
+                                <br />
+                                Is Approved: <%#: Item.IsApproved %>
+                                <br />
+                                Is Available: <%#: Item.IsAvailable %>
+                                <br />
+                                Is Used: <%#: Item.IsUsed %>
+                                <br />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ItemTemplate>
+    </asp:FormView>
+
 </asp:Content>

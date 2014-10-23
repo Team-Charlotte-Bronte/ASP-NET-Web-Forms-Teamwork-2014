@@ -47,5 +47,12 @@ namespace Bookie.Web.Account.Administration
 
             return books.OrderBy(b => b.Id);
         }
+
+        protected void GridViewBooks_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var id = this.GridViewBooks.SelectedDataKey.Value.ToString();
+            this.FormViewDetails.DataSource = this.Data.Books.All().Where(b => b.Id.ToString() == id).ToArray();
+            this.FormViewDetails.DataBind();
+        }
     }
 }
