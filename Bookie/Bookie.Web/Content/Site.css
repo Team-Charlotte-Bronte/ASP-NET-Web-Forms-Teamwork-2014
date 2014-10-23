@@ -49,5 +49,10 @@ div.navbar.navbar-inverse.navbar-static-top
 }
 
 div.container.body-content, #page-wrapper {
-    padding-top: 20px !important;
+    margin-top: 50px !important;
+    padding-top: 30px !important;
+}
+
+div.form-group div.col-md-9 input[type=text] {
+    max-width: none;
 }

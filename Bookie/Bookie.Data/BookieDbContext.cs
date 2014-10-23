@@ -41,11 +41,6 @@ namespace Bookie.Data
             return base.Set<T>();
         }
 
-        public DbEntityEntry<T> Entry<T>(T entity) where T : class
-        {
-            return this.Entry<T>(entity);
-        }
-
         public void SaveChanges()
         {
             base.SaveChanges();

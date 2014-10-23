@@ -19,7 +19,7 @@
         public Guid Id { get; set; }
 
         [Required]
-        [MinLength(5), MaxLength(100)]
+        [MinLength(2), MaxLength(100)]
         public string Name { get; set; }
 
         public virtual ICollection<Book> Books

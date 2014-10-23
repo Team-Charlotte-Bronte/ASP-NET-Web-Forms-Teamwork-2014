@@ -15,6 +15,8 @@
         {
             this.Id = Guid.NewGuid();
             this.DateAdded = DateTime.Now;
+            this.IsAvailable = true;
+            this.IsApproved = false;
             this.authors = new HashSet<Author>();
             this.comments = new HashSet<BookComment>();
         }
@@ -22,7 +24,7 @@
         [Key]
         public Guid Id { get; set; }
 
-        public int CatalogNumber { get; set; }
+        public int? CatalogNumber { get; set; }
 
         [Required]
         [MinLength(2), MaxLength(120)]
@@ -43,7 +45,8 @@
 
         public int? Year { get; set; }
 
-        public byte[] Image { get; set; }
+        [Required]
+        public string ImageUrl { get; set; }
 
         public bool? IsAvailable { get; set; }
 
