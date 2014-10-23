@@ -63,7 +63,10 @@ div.row div img
 {
     width: 100%;
 }
-
+img {
+    max-height:300px;
+    max-width : 300px;
+}
 div.col-md-3.text-center div.well
 {
     max-height: 325px;

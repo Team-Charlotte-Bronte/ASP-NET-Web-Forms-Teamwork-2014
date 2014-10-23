@@ -12,10 +12,20 @@ namespace Bookie.Web.Books
     public partial class Details : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
-        { 
-            var queryId = new Guid("EEEB0180-2D68-40A6-80FE-F2568745E765");
-            var book = this.Data.Books.All().Where(x => x.Id == queryId).ToList();
-            this.BookDetailsView.DataSource = book;
+        {
+            string v = Request.QueryString["bookId"];
+            if (v !=null)
+            {
+                Debug.WriteLine(v.ToString());
+                var queryId = new Guid(v);
+                var book = this.Data.Books.All().Where(x => x.Id == queryId).ToList();
+                this.BookDetailsView.DataSource = book;
+                this.BookDetailsView.DataBind();
+            }
+            else
+            {
+                Debug.WriteLine("Wrong parametter");
+            }
         }
     }
 }
