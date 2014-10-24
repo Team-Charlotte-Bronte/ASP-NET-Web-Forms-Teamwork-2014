@@ -132,7 +132,7 @@
                                         </HeaderTemplate>
                                         <ItemTemplate>
                                             <li>
-                                                <a href="<%= ResolveClientUrl("~/?category=") %><%#:Item.Id %>"><%#:Item.Name %></a>
+                                                <a href="<%= ResolveClientUrl("~/Home/Default?category=") %><%#:Item.Id %>"><%#:Item.Name %></a>
                                             </li>
                                         </ItemTemplate>
                                         <FooterTemplate>
