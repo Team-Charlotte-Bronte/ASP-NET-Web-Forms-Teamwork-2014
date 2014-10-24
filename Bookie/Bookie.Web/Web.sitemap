@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
+  <siteMapNode title="Home" description="Home Page" url="~/Default.aspx">
+    <siteMapNode title="About" description="About Page" url="~/About.aspx" />
+    
+    <siteMapNode title="Admin" description="Site administration" roles="admin">
+      <siteMapNode title="AdminPanel" description="Admin Panel" url="~/Account/Administration/AdminPanel"/>
+    </siteMapNode>
+   
+    <siteMapNode title="Books" description="Site administration" roles="admin">
+      <siteMapNode title="Create" description="Create a new book" url="~/Books/Create.aspx"/>
+      <siteMapNode title="Book details" description="Details" url="~/Books/Details.aspx"/>
+
+    </siteMapNode>
+
+  </siteMapNode>
+</siteMap>

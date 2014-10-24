@@ -1,5 +1,8 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" 
-    CodeBehind="Site.master.cs" Inherits="Bookie.Web.SiteMaster" %>
+CodeBehind="Site.master.cs" Inherits="Bookie.Web.SiteMaster" %>
+
+<%@ Register src="~/Controls/ErrorSuccessNotifier/ErrorSuccessNotifier.ascx"
+tagname="ErrorSuccessNotifier" tagprefix="userControls" %>
 
 <!DOCTYPE html>
 
@@ -156,6 +159,15 @@
                 </asp:ContentPlaceHolder>
                 <div class="panel-footer navbar-fixed-bottom">
                     <footer class="text-center">
+                        <div class="clear hideSkiplink">
+                            <asp:Menu ID="NavigationMenu" runat="server"  SkipLinkText=""
+                                      EnableViewState="False" IncludeStyleBlock="True" Orientation="Horizontal" 
+                                      DataSourceID="SiteMapDataSource" StaticDisplayLevels="2">
+                            </asp:Menu>
+                            <asp:SiteMapPath ID="SiteMapPathBreadcrump" runat="server" />
+                        </div>
+                        <asp:SiteMapDataSource ID="SiteMapDataSource" runat="server" />
+
                         <small>
                             <a href="https://github.com/Team-Charlotte-Bronte" target="_blank">Team "Charlotte Bronte"</a>
                             &#169; 2014,
