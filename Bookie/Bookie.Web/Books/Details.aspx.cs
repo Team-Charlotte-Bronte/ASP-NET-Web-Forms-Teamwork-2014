@@ -1,30 +1,31 @@
-﻿using Bookie.Web.Models;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-namespace Bookie.Web.Books
+﻿namespace Bookie.Web.Books
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Bookie.Models;
+    using Bookie.Web.Models;
+
     public partial class Details : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string v = Request.QueryString["bookId"];
-            if (v !=null)
+            string bookId = this.Request.QueryString["book"];
+            if (bookId != null)
             {
-                Debug.WriteLine(v.ToString());
-                var queryId = new Guid(v);
-                var book = this.Data.Books.All().Where(x => x.Id == queryId).ToList();
-                this.BookDetailsView.DataSource = book;
+                var queryId = new Guid(bookId);
+                var book = this.Data.Books.All().Where(x => x.Id == queryId).FirstOrDefault();
+                if (book == null)
+                {
+                    this.Response.Redirect("/");
+                }
+
+                this.BookDetailsView.DataSource = new List<Book> { book };
                 this.BookDetailsView.DataBind();
             }
             else
             {
-                Debug.WriteLine("Wrong parametter");
+                this.Response.Redirect("/");
             }
         }
     }
