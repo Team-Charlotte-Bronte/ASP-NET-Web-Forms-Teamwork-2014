@@ -201,6 +201,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Latest\Books.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -445,6 +446,13 @@
     <Compile Include="App_Start\IdentityModels.cs" />
     <Compile Include="Infrastructure\AspNetUserIdProvider.cs" />
     <Compile Include="Infrastructure\IUserIdProvider.cs" />
+    <Compile Include="Latest\Books.aspx.cs">
+      <DependentUpon>Books.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Latest\Books.aspx.designer.cs">
+      <DependentUpon>Books.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Models\BaseMasterPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

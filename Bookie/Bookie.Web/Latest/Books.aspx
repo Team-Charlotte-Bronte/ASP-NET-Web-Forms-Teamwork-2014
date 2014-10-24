@@ -1,10 +1,14 @@
-﻿<%@ Page Title="Bookie - Home" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" 
-    CodeBehind="Default.aspx.cs" Inherits="Bookie.Web.Home._Default" %>
-<%--<%@ OutputCache CacheProfile="ShortLived" %>--%>
+﻿<%@ Page Title="Bookie - Lastest Books" Language="C#" AutoEventWireup="true"
+MasterPageFile="~/Site.Master" 
+CodeBehind="Books.aspx.cs" 
+Inherits="Bookie.Web.Latest.Books" %>
+
+<%@ OutputCache CacheProfile="ShortLived" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+
     <div class="row">
-        <asp:ListView ID="BooksListView" runat="server" ItemType="Bookie.Models.Book" DataKeyNames="Id" InsertItemPosition="None">
+        <asp:ListView ID="LatestBooks" runat="server" ItemType="Bookie.Models.Book" DataKeyNames="Id" InsertItemPosition="None">
             <LayoutTemplate>
                 <span runat="server" id="itemPlaceholder" />
                 <div class="text-center books-pager">
@@ -23,7 +27,7 @@
             <EmptyDataTemplate>
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <h2>There are no results based on your search parameters!</h2>
+                        <h2>There where no new books added in the last hour</h2>
                     </div>
                 </div>
             </EmptyDataTemplate>
@@ -50,4 +54,5 @@
             </ItemTemplate>
         </asp:ListView>
     </div>
+
 </asp:Content>

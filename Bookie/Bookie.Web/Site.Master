@@ -1,4 +1,5 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Bookie.Web.SiteMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" 
+    CodeBehind="Site.master.cs" Inherits="Bookie.Web.SiteMaster" %>
 
 <!DOCTYPE html>
 
@@ -11,11 +12,10 @@
         <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
         </asp:PlaceHolder>
-        <webopt:bundlereference runat="server" path="~/Content/css" />
+        <webopt:BundleReference runat="server" Path="~/Content/css" />
         <link href="Content/sb-admin-2.css" rel="stylesheet" />
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <link href="Content/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
     </head>
     <body>
         <form runat="server">
@@ -117,16 +117,18 @@
                         </li>
 
                         <li>
-                            <a href="/">See all books<span class="fa"></span></a>
+                            <a href="/Latest/Books">
+                                Latest books<span class="fa"></span>
+                            </a>
                         </li>
 
                         <asp:ListView ID="RepeaterCategories" ItemType="Bookie.Models.Category" runat="server">
                             <ItemTemplate>
                                 <li>
-                                    <a> <%#: Item.Name %><span class="fa arrow"></span></a>
+                                    <a><%#: Item.Name %><span class="fa arrow"></span></a>
 
                                     <asp:Repeater ID="RepeaterSubCategories" runat="server" ItemType="Bookie.Models.SubCategory"
-                                                  DataSource="<%# GetSubcats(Item.Id) %>" >
+                                                  DataSource="<%# GetSubcats(Item.Id) %>">
                                         <HeaderTemplate>
                                             <ul class="nav nav-second-level collapse">
                                         </HeaderTemplate>
