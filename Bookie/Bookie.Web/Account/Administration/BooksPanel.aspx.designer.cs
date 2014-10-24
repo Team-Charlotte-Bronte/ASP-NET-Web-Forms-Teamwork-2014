@@ -13,6 +13,15 @@ namespace Bookie.Web.Account.Administration {
     public partial class BooksPanel {
         
         /// <summary>
+        /// UpdateGridPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdateGridPanel;
+        
+        /// <summary>
         /// GridViewBooks control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace Bookie.Web.Account.Administration {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LabelId;
+        
+        /// <summary>
+        /// UpdatePanelForm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelForm;
         
         /// <summary>
         /// FormViewDetails control.
